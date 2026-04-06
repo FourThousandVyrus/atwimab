@@ -8,12 +8,12 @@ import Link from 'next/link';
 import styles from './page.module.css';
 
 const branches = [
-    { name: 'Foase (Head Office)', address: 'P.O. Box 13, Foase-Atwima, Ashanti Region', phone: '0501 387 040', hours: '8:30 AM â€“ 4:30 PM', days: 'Monday â€“ Friday' },
-    { name: 'Twedie Branch', address: 'Twedie, Ashanti Region', phone: '0501 387 041', hours: '8:30 AM â€“ 4:30 PM', days: 'Monday â€“ Friday' },
-    { name: 'Kwadaso Branch', address: 'Kwadaso, Kumasi', phone: '0501 387 042', hours: '8:30 AM â€“ 4:30 PM', days: 'Monday â€“ Friday' },
-    { name: 'Abuakwa Branch', address: 'Abuakwa, Kumasi', phone: '0501 387 043', hours: '8:30 AM â€“ 4:30 PM', days: 'Monday â€“ Friday' },
-    { name: 'Nkawie Branch', address: 'Nkawie, Ashanti Region', phone: '0501 387 044', hours: '8:30 AM â€“ 4:30 PM', days: 'Monday â€“ Friday' },
-    { name: 'Toase Branch', address: 'Toase, Ashanti Region', phone: '0501 387 045', hours: '8:30 AM â€“ 4:30 PM', days: 'Monday â€“ Friday' },
+    { name: 'Foase (Head Office)', address: 'P.O. Box 13, Foase-Atwima, Ashanti Region', phone: '0501 387 040', hours: '8:30 AM – 4:30 PM', days: 'Monday – Friday' },
+    { name: 'Twedie Branch', address: 'Twedie, Ashanti Region', phone: '0501 387 041', hours: '8:30 AM – 4:30 PM', days: 'Monday – Friday' },
+    { name: 'Kwadaso Branch', address: 'Kwadaso, Kumasi', phone: '0501 387 042', hours: '8:30 AM – 4:30 PM', days: 'Monday – Friday' },
+    { name: 'Abuakwa Branch', address: 'Abuakwa, Kumasi', phone: '0501 387 043', hours: '8:30 AM – 4:30 PM', days: 'Monday – Friday' },
+    { name: 'Nkawie Branch', address: 'Nkawie, Ashanti Region', phone: '0501 387 044', hours: '8:30 AM – 4:30 PM', days: 'Monday – Friday' },
+    { name: 'Toase Branch', address: 'Toase, Ashanti Region', phone: '0501 387 045', hours: '8:30 AM – 4:30 PM', days: 'Monday – Friday' },
 ];
 
 const services = [
@@ -247,3 +247,4 @@ export default function Contact() {
         </>
     );
 }
+
