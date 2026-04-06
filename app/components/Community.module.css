@@ -1,0 +1,122 @@
+.section {
+    overflow: hidden;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: var(--space-16);
+    align-items: center;
+}
+
+.imageGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.7s ease;
+}
+
+.section.visible .imageGrid {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.imgPlaceholder {
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+    transition: transform 0.3s ease;
+}
+
+.imgPlaceholder:hover {
+    transform: scale(1.03);
+}
+
+.imgPlaceholder:first-child {
+    grid-column: span 2;
+    height: 260px;
+}
+
+.imgLabel {
+    position: absolute;
+    bottom: var(--space-3);
+    left: var(--space-3);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--neutral-700);
+    background: rgba(255, 255, 255, 0.85);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(4px);
+    z-index: 1;
+}
+
+.content {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.7s ease 0.2s;
+}
+
+.section.visible .content {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.desc {
+    font-size: var(--text-lg);
+    color: var(--neutral-500);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-8);
+}
+
+.impacts {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.impact {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+}
+
+.impactIcon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--neutral-50);
+    border-radius: var(--radius-lg);
+}
+
+.impact strong {
+    display: block;
+    font-size: var(--text-base);
+    color: var(--neutral-900);
+    margin-bottom: var(--space-1);
+}
+
+.impact p {
+    font-size: var(--text-sm);
+    color: var(--neutral-500);
+    margin: 0;
+    line-height: var(--leading-relaxed);
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-10);
+    }
+
+    .imageGrid {
+        order: -1;
+    }
+}

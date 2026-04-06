@@ -1,0 +1,223 @@
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, var(--primary-900) 0%, var(--primary-800) 100%);
+    padding: calc(var(--header-height) + var(--space-12)) 0 var(--space-12);
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 800;
+    color: #fff;
+    margin: var(--space-3) 0 var(--space-4);
+}
+
+.heroSub {
+    font-size: 1.1rem;
+    color: var(--primary-200);
+    max-width: 560px;
+    line-height: 1.75;
+    margin-bottom: var(--space-6);
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: var(--space-4);
+}
+
+.breadcrumb a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.breadcrumb a:hover { color: #fff; }
+
+.breadcrumb span { color: rgba(255, 255, 255, 0.5); }
+
+.heroMeta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    flex-wrap: wrap;
+}
+
+.heroMetaItem {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.95rem;
+    color: var(--primary-100);
+}
+
+.heroMetaItem svg { opacity: 0.7; flex-shrink: 0; }
+
+/* Branch Grid */
+.branchGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+}
+
+@media (max-width: 900px) {
+    .branchGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+    .branchGrid { grid-template-columns: 1fr; }
+}
+
+.branchCard {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.branchCard:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.branchTop {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.branchName {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+.statusBadge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.branchDetails {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.branchRow {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.branchRow svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--primary-500);
+}
+
+/* Forms Grid */
+.formsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .formsGrid { grid-template-columns: 1fr; }
+}
+
+/* Form Panel */
+.formPanel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-card);
+}
+
+.formPanelHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.formPanelIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.formPanelTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+}
+
+.formPanelSub {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Form */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.row2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+}
+
+@media (max-width: 540px) {
+    .row2 { grid-template-columns: 1fr; }
+    .formPanel { padding: var(--space-5); }
+}
+
+/* Success */
+.successBox {
+    text-align: center;
+    padding: var(--space-10) var(--space-6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.successBox h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.successBox p {
+    color: var(--text-secondary);
+    max-width: 320px;
+    line-height: 1.6;
+}

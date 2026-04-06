@@ -1,0 +1,205 @@
+.hero {
+    background: linear-gradient(135deg, var(--primary-900) 0%, var(--primary-800) 60%, var(--primary-700) 100%);
+    color: #fff;
+    padding: calc(var(--header-height) + var(--space-12)) 0 var(--space-12);
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #fff;
+    margin: var(--space-3) 0 var(--space-4);
+}
+
+.heroSub {
+    font-size: 1.125rem;
+    color: var(--primary-200);
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Notice Banner */
+.notice {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    background: var(--primary-50);
+    border: 1px solid var(--primary-200);
+    border-left: 4px solid var(--primary-600);
+    color: var(--primary-800);
+    border-radius: var(--radius-md);
+    padding: var(--space-4) var(--space-5);
+    margin-bottom: var(--space-10);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.notice svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--primary-600);
+}
+
+.notice p { margin: 0; }
+
+/* Category */
+.category {
+    margin-bottom: var(--space-12);
+}
+
+.categoryTitle {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-5);
+    padding-bottom: var(--space-3);
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.docsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+}
+
+@media (max-width: 768px) {
+    .docsGrid { grid-template-columns: 1fr; }
+}
+
+/* Doc Card */
+.docCard {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.docCard:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-300);
+}
+
+.docIcon {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    background: var(--primary-50);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.docInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.docTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+    line-height: 1.4;
+}
+
+.docDesc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: var(--space-2);
+}
+
+.docMeta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.docBadge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: var(--primary-100);
+    color: var(--primary-700);
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+
+.docSize {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+}
+
+.downloadBtn {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    background: var(--primary-600);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    white-space: nowrap;
+    opacity: 0.75;
+    cursor: not-allowed;
+    user-select: none;
+}
+
+/* CTA Section */
+.ctaSection {
+    background: var(--bg-alt);
+    padding: var(--space-16) 0;
+}
+
+.ctaCard {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--space-10) var(--space-12);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-8);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+    .ctaCard {
+        flex-direction: column;
+        padding: var(--space-8);
+        text-align: center;
+    }
+}
+
+.ctaText h2 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.ctaText p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 480px;
+}
+
+.ctaButtons {
+    display: flex;
+    gap: var(--space-3);
+    flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+    .ctaButtons { flex-direction: column; }
+}

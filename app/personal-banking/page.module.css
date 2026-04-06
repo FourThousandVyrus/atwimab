@@ -1,0 +1,129 @@
+.pageHero {
+    background: linear-gradient(135deg, var(--primary-900), var(--primary-800));
+    padding: calc(var(--header-height) + var(--space-16)) 0 var(--space-16);
+    color: #FFFFFF;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: var(--space-6);
+}
+
+.breadcrumb a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+    color: #FFFFFF;
+}
+
+.heroTitle {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: var(--space-4);
+}
+
+.heroSubtitle {
+    font-size: var(--text-lg);
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    line-height: var(--leading-relaxed);
+}
+
+.accountsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+}
+
+.accountCard {
+    background: var(--bg-primary);
+    border: 1px solid var(--neutral-100);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.accountCard:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-4px);
+}
+
+.accountHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+.accountIcon {
+    font-size: 2rem;
+    width: 56px;
+    height: 56px;
+    background: var(--primary-50);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accountTitle {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--neutral-900);
+}
+
+.accountDesc {
+    font-size: var(--text-base);
+    color: var(--neutral-500);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-6);
+}
+
+.featuresLabel {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--neutral-700);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: var(--space-3);
+}
+
+.featuresList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+}
+
+.featuresList li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--neutral-600);
+}
+
+@media (max-width: 768px) {
+    .accountsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .heroTitle {
+        font-size: var(--text-4xl);
+    }
+}

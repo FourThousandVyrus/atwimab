@@ -1,0 +1,113 @@
+.section {
+    padding: var(--space-12) 0;
+    background: linear-gradient(135deg, var(--primary-900) 0%, var(--primary-800) 100%);
+    border-top: none;
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-8);
+}
+
+.iconWrap {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-xl);
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.title {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: var(--space-2);
+}
+
+.text {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0;
+    max-width: 400px;
+}
+
+.formWrap {
+    flex-shrink: 0;
+}
+
+.form {
+    display: flex;
+    gap: var(--space-3);
+}
+
+.input {
+    width: 280px;
+    padding: var(--space-3) var(--space-4);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-md);
+    outline: none;
+    transition: border-color 0.2s ease;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.input:focus {
+    border-color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.success {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: var(--text-base);
+}
+
+@media (max-width: 1024px) {
+    .inner {
+        flex-direction: column;
+        text-align: center;
+    }
+    .iconWrap { display: none; }
+    .input { width: 240px; }
+}
+
+@media (max-width: 600px) {
+    .form { flex-direction: column; align-items: stretch; }
+    .input { width: 100%; }
+}
+
+@media (max-width: 768px) {
+    .inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text {
+        max-width: unset;
+    }
+
+    .form {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .input {
+        width: 100%;
+    }
+}

@@ -1,0 +1,66 @@
+.btn {
+    position: fixed;
+    bottom: var(--space-6);
+    right: var(--space-6);
+    left: auto;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #25D366;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    z-index: 100;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #20BA5A;
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+.btn:hover .tooltip {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.tooltip {
+    position: absolute;
+    right: calc(100% + var(--space-3));
+    left: auto;
+    background: var(--neutral-900);
+    color: #FFFFFF;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-md);
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(8px);
+    transition: all 0.2s ease;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .btn {
+        right: var(--space-4);
+        left: auto;
+        bottom: var(--space-4);
+        width: 48px;
+        height: 48px;
+    }
+
+    .btn svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .tooltip {
+        display: none;
+    }
+}
