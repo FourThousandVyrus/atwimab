@@ -5,12 +5,12 @@ import WhatsAppButton from '../components/WhatsAppButton';
 import Link from 'next/link';
 
 export const metadata = {
-    title: 'Security Center | Atwima Rural Bank',
+    title: 'Security Center | Atwima Community Bank',
     description: 'Learn about our security measures, fraud protection, and online safety practices. Your security is our top priority.',
 };
 
 const tips = [
-    { icon: '🔐', title: 'Protect Your PIN', desc: 'Never share your PIN, password, or OTP with anyone. Atwima Rural Bank staff will never ask for your PIN.' },
+    { icon: '🔐', title: 'Protect Your PIN', desc: 'Never share your PIN, password, or OTP with anyone. Atwima Community Bank staff will never ask for your PIN.' },
     { icon: '📧', title: 'Beware of Phishing', desc: 'Do not click on suspicious links in emails or messages. Always access your bank account directly through our official website.' },
     { icon: '📱', title: 'Secure Your Devices', desc: 'Keep your mobile phone and computer updated with the latest security patches. Use antivirus software.' },
     { icon: '🔔', title: 'Monitor Your Accounts', desc: 'Regularly check your account statements for unauthorized transactions. Report any suspicious activity immediately.' },

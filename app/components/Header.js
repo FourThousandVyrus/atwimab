@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './Header.module.css';
 import RateTicker from './RateTicker';
 
@@ -65,7 +66,7 @@ const navigation = [
         children: [
             { label: 'Our Story', href: '/about#our-story' },
             { label: 'Board of Directors', href: '/about#board' },
-            { label: 'Senior Management', href: '/about#management' },
+            { label: 'Senior Management', href: '/management' },
             { label: 'Community Involvement', href: '/about#community' },
             { label: 'Careers', href: '/careers' },
         ],
@@ -103,17 +104,14 @@ export default function Header() {
             <RateTicker />
             <div className={styles.container}>
                 <Link href="/" className={styles.logo} onClick={() => setMobileOpen(false)}>
-                    <div className={styles.logoMark}>
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <rect width="40" height="40" rx="8" fill="#2596be" />
-                            <path d="M10 28L20 12L30 28H10Z" fill="#D69E2E" opacity="0.9" />
-                            <path d="M15 28L20 18L25 28H15Z" fill="white" opacity="0.8" />
-                        </svg>
-                    </div>
-                    <div className={styles.logoText}>
-                        <span className={styles.logoName}>Atwima Rural Bank</span>
-                        <span className={styles.logoTagline}>A friend in need is a friend indeed</span>
-                    </div>
+                    <Image 
+                        src="/logo.png" 
+                        alt="Atwima Community Bank Logo" 
+                        width={180} 
+                        height={60} 
+                        style={{ objectFit: 'contain' }}
+                        priority
+                    />
                 </Link>
 
                 <nav className={`${styles.nav} ${mobileOpen ? styles.navOpen : ''}`}>

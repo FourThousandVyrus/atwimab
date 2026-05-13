@@ -28,7 +28,7 @@ export default function Hero() {
                         Powered by <span className={styles.highlight}>Community.</span>
                     </h1>
                     <p className={styles.subtitle}>
-                        For over three decades, Atwima Rural Bank has helped families, businesses,
+                        For over three decades, Atwima Community Bank has helped families, businesses,
                         and communities across the Ashanti Region build a stronger financial future.
                         Your growth is our mission.
                     </p>
@@ -57,54 +57,42 @@ export default function Hero() {
                     </div>
                 </div>
                 <div className={styles.visual}>
-                    <div className={styles.visualCard}>
-                        <div className={styles.cardInner}>
-                            <div className={styles.cardHeader}>
-                                <div className={styles.cardDot} style={{ background: 'var(--secondary-400)' }}></div>
-                                <div className={styles.cardDot} style={{ background: 'var(--accent-400)' }}></div>
-                                <div className={styles.cardDot} style={{ background: 'var(--primary-400)' }}></div>
+                    <div className={styles.visualStack}>
+                        <div className={styles.imageBase}>
+                            <img src="/community-hero.png" alt="Atwima Community Bank" className={styles.heroImage} />
+                            <div className={styles.imageOverlay}></div>
+                        </div>
+                        
+                        {/* Floating Trust Cards */}
+                        <div className={`${styles.floatingCard} ${styles.card1}`}>
+                            <div className={styles.cardIcon}>🏢</div>
+                            <div className={styles.cardInfo}>
+                                <div className={styles.cardLabel}>Our Presence</div>
+                                <div className={styles.cardValue}>6 Local Branches</div>
                             </div>
-                            <div className={styles.mockupContent}>
-                                <div className={styles.mockupGreeting}>Welcome back 👋</div>
-                                <div className={styles.mockupBalance}>
-                                    <span className={styles.mockupLabel}>Total Balance</span>
-                                    <span className={styles.mockupAmount}>GH₵ 24,580.00</span>
-                                </div>
-                                <div className={styles.mockupAccounts}>
-                                    <div className={styles.mockupAccount}>
-                                        <div className={styles.mockupAccIcon} style={{ background: 'var(--primary-100)', color: 'var(--primary-600)' }}>
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M2 10h20" /></svg>
-                                        </div>
-                                        <div>
-                                            <div className={styles.mockupAccName}>Savings Account</div>
-                                            <div className={styles.mockupAccBal}>GH₵ 18,240.00</div>
-                                        </div>
-                                    </div>
-                                    <div className={styles.mockupAccount}>
-                                        <div className={styles.mockupAccIcon} style={{ background: 'var(--secondary-100)', color: 'var(--secondary-600)' }}>
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
-                                        </div>
-                                        <div>
-                                            <div className={styles.mockupAccName}>Current Account</div>
-                                            <div className={styles.mockupAccBal}>GH₵ 6,340.00</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={styles.mockupActions}>
-                                    <div className={styles.mockupAction}>
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12h14" /></svg>
-                                        Transfer
-                                    </div>
-                                    <div className={styles.mockupAction}>
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
-                                        Pay Bills
-                                    </div>
-                                    <div className={styles.mockupAction}>
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><path d="M16 8l-4 4-4-4" /></svg>
-                                        History
-                                    </div>
-                                </div>
+                        </div>
+
+                        <div className={`${styles.floatingCard} ${styles.card2}`}>
+                            <div className={styles.cardIcon}>🤝</div>
+                            <div className={styles.cardInfo}>
+                                <div className={styles.cardLabel}>Trusted By</div>
+                                <div className={styles.cardValue}>Thousands in Ashanti</div>
                             </div>
+                        </div>
+
+                        <div className={`${styles.floatingCard} ${styles.card3}`}>
+                            <div className={styles.cardIcon}>📈</div>
+                            <div className={styles.cardInfo}>
+                                <div className={styles.cardLabel}>Our Impact</div>
+                                <div className={styles.cardValue}>30+ Years Growth</div>
+                            </div>
+                        </div>
+
+                        {/* Service Pills */}
+                        <div className={styles.servicePills}>
+                            <span className={styles.servicePill}>Savings</span>
+                            <span className={styles.servicePill}>Loans</span>
+                            <span className={styles.servicePill}>Susu</span>
                         </div>
                     </div>
                 </div>

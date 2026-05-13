@@ -23,7 +23,7 @@ export default function SusuCalculator() {
                         <span className="section-label">Susu Planner</span>
                         <h2 className={styles.title}>Try Our Susu Savings Planner</h2>
                         <p className={styles.desc}>
-                            Susu is a time-honoured savings tradition in Ghana. At Atwima Rural Bank, our Susu Account lets you save small amounts daily and build toward your goals — with our collectors visiting you directly.
+                            Susu is a time-honoured savings tradition in Ghana. At Atwima Community Bank, our Susu Account lets you save small amounts daily and build toward your goals — with our collectors visiting you directly.
                         </p>
                         <div className={styles.steps}>
                             <div className={styles.step}>

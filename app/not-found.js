@@ -10,7 +10,7 @@ export default function NotFound() {
                         <rect width="120" height="120" rx="24" fill="#2596be" />
                         <text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="52" fontWeight="800" fontFamily="system-ui, sans-serif">A</text>
                     </svg>
-                    <span className={styles.brandName}>Atwima Rural Bank</span>
+                    <span className={styles.brandName}>Atwima Community Bank</span>
                 </div>
 
                 <div className={styles.code}>404</div>

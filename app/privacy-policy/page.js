@@ -4,8 +4,8 @@ import BackToTop from '../components/BackToTop';
 import styles from './page.module.css';
 
 export const metadata = {
-    title: 'Privacy Policy | Atwima Rural Bank PLC',
-    description: 'Learn how Atwima Rural Bank collects, uses, and protects your personal information in compliance with the Ghana Data Protection Act 2012.',
+    title: 'Privacy Policy | Atwima Community Bank PLC',
+    description: 'Learn how Atwima Community Bank collects, uses, and protects your personal information in compliance with the Ghana Data Protection Act 2012.',
 };
 
 export default function PrivacyPolicyPage() {
@@ -18,7 +18,7 @@ export default function PrivacyPolicyPage() {
                         <span className="section-label">Legal</span>
                         <h1>Privacy Policy</h1>
                         <p className={styles.heroSub}>
-                            Effective Date: 1 January 2026 &nbsp;|&nbsp; Atwima Rural Bank PLC
+                            Effective Date: 1 January 2026 &nbsp;|&nbsp; Atwima Community Bank PLC
                         </p>
                     </div>
                 </section>
@@ -36,7 +36,7 @@ export default function PrivacyPolicyPage() {
                             <article className={styles.content}>
                                 <section id="overview">
                                     <h2>Overview</h2>
-                                    <p>Atwima Rural Bank PLC (&ldquo;the Bank&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) is committed to protecting and respecting the privacy of all customers, staff, and website visitors. This Privacy Policy explains how we collect, use, store, and protect personal information in accordance with the <strong>Ghana Data Protection Act, 2012 (Act 843)</strong> and its accompanying Regulations.</p>
+                                    <p>Atwima Community Bank PLC (&ldquo;the Bank&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) is committed to protecting and respecting the privacy of all customers, staff, and website visitors. This Privacy Policy explains how we collect, use, store, and protect personal information in accordance with the <strong>Ghana Data Protection Act, 2012 (Act 843)</strong> and its accompanying Regulations.</p>
                                     <p>By using our website or services, you consent to the practices described in this policy.</p>
                                 </section>
 
@@ -115,7 +115,7 @@ export default function PrivacyPolicyPage() {
                                     <p>For all data protection enquiries, requests, or complaints, please contact:</p>
                                     <div className={styles.dpoCard}>
                                         <strong>Data Protection Officer</strong>
-                                        <p>Atwima Rural Bank PLC<br />P.O. Box 13, Foase-Atwima<br />Ashanti Region, Ghana</p>
+                                        <p>Atwima Community Bank PLC<br />P.O. Box 13, Foase-Atwima<br />Ashanti Region, Ghana</p>
                                         <p>📞 0501 387 040<br />✉️ info@atwimabank.com</p>
                                     </div>
                                     <p>You may also report concerns to the <strong>Data Protection Commission of Ghana</strong> at <a href="https://dataprotection.org.gh" target="_blank" rel="noopener noreferrer">dataprotection.org.gh</a>.</p>

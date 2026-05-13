@@ -5,8 +5,8 @@ import WhatsAppButton from '../components/WhatsAppButton';
 import styles from './page.module.css';
 
 export const metadata = {
-    title: 'Downloads & Forms | Atwima Rural Bank',
-    description: 'Download account opening forms, loan application forms, and banking brochures from Atwima Rural Bank.',
+    title: 'Downloads & Forms | Atwima Community Bank',
+    description: 'Download account opening forms, loan application forms, and banking brochures from Atwima Community Bank.',
 };
 
 const categories = [
@@ -34,7 +34,7 @@ const categories = [
         name: 'Brochures',
         icon: '📋',
         docs: [
-            { title: 'Atwima Rural Bank Overview', desc: 'General overview of our products, services, and branch network.', type: 'PDF', size: '1.2 MB' },
+            { title: 'Atwima Community Bank Overview', desc: 'General overview of our products, services, and branch network.', type: 'PDF', size: '1.2 MB' },
             { title: 'Savings Products Guide', desc: 'Detailed rates and features for all savings accounts.', type: 'PDF', size: '560 KB' },
             { title: 'Loans & Credit Products', desc: 'Interest rates, eligibility and terms for all loan products.', type: 'PDF', size: '620 KB' },
             { title: 'Investment & Shares Guide', desc: 'Information on ARB Apex Shares and fixed deposit options.', type: 'PDF', size: '480 KB' },

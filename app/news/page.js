@@ -7,8 +7,8 @@ import Image from 'next/image';
 import styles from './page.module.css';
 
 export const metadata = {
-    title: 'News & Announcements | Atwima Rural Bank PLC',
-    description: 'Stay up to date with the latest news, rate changes, and community events from Atwima Rural Bank in the Ashanti Region.',
+    title: 'News & Announcements | Atwima Community Bank PLC',
+    description: 'Stay up to date with the latest news, rate changes, and community events from Atwima Community Bank in the Ashanti Region.',
 };
 
 const articles = [
@@ -16,14 +16,14 @@ const articles = [
         date: 'March 20, 2026',
         category: 'Rates',
         title: 'Fixed Deposit Rate Update: Now Earning Up to 22% Per Annum',
-        summary: 'Atwima Rural Bank has updated its fixed deposit rates in response to the latest Bank of Ghana monetary policy. Customers can now earn up to 22% p.a. on 12-month deposits. Visit any branch or use our online calculator to plan your investment.',
+        summary: 'Atwima Community Bank has updated its fixed deposit rates in response to the latest Bank of Ghana monetary policy. Customers can now earn up to 22% p.a. on 12-month deposits. Visit any branch or use our online calculator to plan your investment.',
         tag: 'Important',
         image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80',
     },
     {
         date: 'February 10, 2026',
         category: 'Community',
-        title: 'Atwima Rural Bank Supports 2026 Foase Community Health Fair',
+        title: 'Atwima Community Bank Supports 2026 Foase Community Health Fair',
         summary: 'We were proud sponsors of the Foase Community Health Fair held at the Foase Recreation Park. Staff volunteered alongside medical teams to provide free savings consultations and financial literacy sessions to over 400 community members.',
         tag: 'News',
         image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
@@ -40,7 +40,7 @@ const articles = [
         date: 'December 5, 2025',
         category: 'Notice',
         title: 'Holiday Banking Hours — Christmas & New Year 2025/2026',
-        summary: 'All Atwima Rural Bank branches will operate on modified hours during the festive season. December 24: Close at 12:00 PM. December 25–26: Closed. December 31: Close at 12:00 PM. January 1: Closed. Normal hours resume January 2, 2026.',
+        summary: 'All Atwima Community Bank branches will operate on modified hours during the festive season. December 24: Close at 12:00 PM. December 25–26: Closed. December 31: Close at 12:00 PM. January 1: Closed. Normal hours resume January 2, 2026.',
         tag: 'Notice',
         image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
     },
@@ -48,7 +48,7 @@ const articles = [
         date: 'November 12, 2025',
         category: 'Community',
         title: 'ARB Donates to Kwadaso JHS School Building Fund',
-        summary: 'As part of our commitment to community development, Atwima Rural Bank donated GH₵15,000 to the Kwadaso Junior High School Building Fund. The contribution will be used for the construction of a new science laboratory for students.',
+        summary: 'As part of our commitment to community development, Atwima Community Bank donated GH₵15,000 to the Kwadaso Junior High School Building Fund. The contribution will be used for the construction of a new science laboratory for students.',
         tag: 'News',
         image: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80',
     },
@@ -70,7 +70,7 @@ export default function NewsPage() {
                     <div className="container">
                         <span className="section-label">Stay Informed</span>
                         <h1>News & Announcements</h1>
-                        <p className={styles.heroSub}>The latest updates on rates, community impact, new services, and important notices from Atwima Rural Bank.</p>
+                        <p className={styles.heroSub}>The latest updates on rates, community impact, new services, and important notices from Atwima Community Bank.</p>
                     </div>
                 </section>
 

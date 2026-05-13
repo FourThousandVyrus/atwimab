@@ -28,7 +28,7 @@ export default function DigitalBanking() {
                     <div className={styles.content}>
                         <span className="section-label">Convenient Banking</span>
                         <h2 className="section-title">Banking Made for Your Life</h2>
-                        <p className={styles.desc}>Atwima Rural Bank makes your financial life easier. Whether it's mobile money, branch visits, or personal advisory — we bring banking closer to your community.</p>
+                        <p className={styles.desc}>Atwima Community Bank makes your financial life easier. Whether it's mobile money, branch visits, or personal advisory — we bring banking closer to your community.</p>
                         <div className={styles.features}>
                             {features.map((f) => (
                                 <div key={f.title} className={styles.feature}>
@@ -48,7 +48,7 @@ export default function DigitalBanking() {
                                     <svg width="28" height="28" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#2596be"/><path d="M10 28L20 12L30 28H10Z" fill="#D69E2E" opacity="0.9"/><path d="M15 28L20 18L25 28H15Z" fill="white" opacity="0.8"/></svg>
                                 </div>
                                 <div>
-                                    <div className={styles.cardBankName}>Atwima Rural Bank</div>
+                                    <div className={styles.cardBankName}>Atwima Community Bank</div>
                                     <div className={styles.cardSub}>6 Branches · Ashanti Region</div>
                                 </div>
                             </div>

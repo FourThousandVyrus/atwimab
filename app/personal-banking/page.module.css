@@ -48,11 +48,36 @@
     background: var(--bg-primary);
     border: 1px solid var(--neutral-100);
     border-radius: var(--radius-xl);
-    padding: var(--space-8);
+    overflow: hidden; /* Ensure image corners are clipped */
     box-shadow: var(--shadow-card);
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
+}
+
+.imageContainer {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.accountImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.accountCard:hover .accountImage {
+    transform: scale(1.05);
+}
+
+.accountContent {
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .accountCard:hover {
@@ -60,29 +85,12 @@
     transform: translateY(-4px);
 }
 
-.accountHeader {
-    display: flex;
-    align-items: center;
-    gap: var(--space-4);
-    margin-bottom: var(--space-4);
-}
-
-.accountIcon {
-    font-size: 2rem;
-    width: 56px;
-    height: 56px;
-    background: var(--primary-50);
-    border-radius: var(--radius-lg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .accountTitle {
     font-family: var(--font-heading);
     font-size: var(--text-2xl);
     font-weight: 700;
     color: var(--neutral-900);
+    margin-bottom: var(--space-3);
 }
 
 .accountDesc {

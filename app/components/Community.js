@@ -37,7 +37,7 @@ export default function Community() {
                         <span className="section-label">Community Impact</span>
                         <h2 className="section-title">Investing in Our Community</h2>
                         <p className={styles.desc}>
-                            As a community bank, we believe in giving back. Atwima Rural Bank actively supports education,
+                            As a community bank, we believe in giving back. Atwima Community Bank actively supports education,
                             healthcare, agriculture, and local development initiatives across the Ashanti Region.
                         </p>
                         <div className={styles.impacts}>

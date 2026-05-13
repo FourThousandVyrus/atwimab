@@ -1,5 +1,22 @@
 .section {
     position: relative;
+    background-image: url('/adinkra_bold.png');
+    background-repeat: repeat;
+    background-size: 400px;
+    background-attachment: fixed;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(248, 249, 250, 0.88); /* More visible symbols */
+    z-index: 1;
+}
+
+.section > * {
+    position: relative;
+    z-index: 2;
 }
 
 .grid {

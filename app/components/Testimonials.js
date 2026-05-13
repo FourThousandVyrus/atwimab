@@ -4,46 +4,40 @@ import styles from './Testimonials.module.css';
 
 const testimonials = [
     {
-        quote: "Atwima Rural Bank has been my banking partner for over 15 years. Their personal touch and community commitment makes them stand out from the big banks.",
-        name: "Kwame Mensah",
+        quote: "Atwima Community Bank has been my banking partner for over 15 years. Their personal touch and community commitment makes them stand out from the big banks.",
+        name: "Mr. Kwame Mensah",
         role: "Business Owner, Kumasi",
-        initials: "KM",
-        avatar: "https://picsum.photos/seed/kwamemensah/80/80",
+        avatar: "/customer_entrepreneur_male_1778597821569.png",
     },
     {
         quote: "The susu savings account helped me build discipline with my market earnings. Now I've saved enough to expand my shop. I'm grateful for their support.",
-        name: "Ama Serwaa",
+        name: "Mrs. Ama Serwaa",
         role: "Market Trader, Foase",
-        initials: "AS",
-        avatar: "https://picsum.photos/seed/amaserwaa/80/80",
+        avatar: "/customer_trader_female_ghana_1778597838735.png",
     },
     {
         quote: "When I needed a salary loan for my child's education, they processed it quickly and with fair rates. They truly understand working families.",
-        name: "Joseph Adu-Gyamfi",
+        name: "Mr. Joseph Adu-Gyamfi",
         role: "Teacher, Kwadaso",
-        initials: "JA",
-        avatar: "https://picsum.photos/seed/josephagyamfi/80/80",
+        avatar: "/customer_teacher_male_ghana_1778597852861.png",
     },
     {
         quote: "The Western Union service at their Abuakwa branch is always smooth. My family abroad sends money and I get it the same day. Very reliable.",
-        name: "Abena Frimpong",
+        name: "Mrs. Abena Frimpong",
         role: "Retiree, Abuakwa",
-        initials: "AF",
-        avatar: "https://picsum.photos/seed/abenafrimpong/80/80",
+        avatar: "/customer_retiree_female_ghana_1778597868837.png",
     },
     {
         quote: "I opened a Kiddies Account for my daughter and the interest rate is impressive. I love how they encourage young people to save early.",
-        name: "Emmanuel Owusu",
+        name: "Mr. Emmanuel Owusu",
         role: "Civil Servant, Nkawie",
-        initials: "EO",
-        avatar: "https://picsum.photos/seed/emmanuelowusu/80/80",
+        avatar: "/customer_civil_servant_ghana_1778597887969.png",
     },
     {
         quote: "Their commercial loan terms are very reasonable compared to other banks. Helped me buy a second vehicle for my transport business.",
-        name: "Yaw Boateng",
+        name: "Mr. Yaw Boateng",
         role: "Transport Operator, Toase",
-        initials: "YB",
-        avatar: "https://picsum.photos/seed/yawboateng/80/80",
+        avatar: "/customer_transport_operator_ghana_1778597908219.png",
     },
 ];
 
@@ -64,7 +58,9 @@ export default function Testimonials() {
                             <div className={styles.stars}>★★★★★</div>
                             <blockquote className={styles.quote}>"{t.quote}"</blockquote>
                             <div className={styles.author}>
-                                <Image className={styles.avatar} src={t.avatar} alt={t.name} width={44} height={44} />
+                                <div className={styles.avatarWrapper}>
+                                    <Image className={styles.avatar} src={t.avatar} alt={t.name} width={50} height={50} style={{ objectFit: 'cover' }} />
+                                </div>
                                 <div>
                                     <div className={styles.authorName}>{t.name}</div>
                                     <div className={styles.authorRole}>{t.role}</div>

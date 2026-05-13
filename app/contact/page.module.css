@@ -130,11 +130,97 @@
 }
 
 /* Forms Grid */
-.formsGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-8);
-    align-items: start;
+.formToggleWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-12);
+}
+
+.formToggle {
+    display: flex;
+    position: relative;
+    background: #f1f5f9;
+    padding: 4px;
+    border-radius: var(--radius-full);
+    width: 100%;
+    max-width: 500px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.toggleBtn {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+    padding: var(--space-3) var(--space-6);
+    border: none;
+    background: transparent;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--primary-600);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.toggleBtn.active {
+    color: white;
+}
+
+.toggleSlider {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    bottom: 4px;
+    width: calc(50% - 4px);
+    background: var(--primary-600);
+    border-radius: var(--radius-full);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.toggleSlider.slideRight {
+    transform: translateX(100%);
+}
+
+.cardContainer {
+    perspective: 2000px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 550px; /* Ensure enough space for the flip */
+}
+
+.cardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+}
+
+.isFlipped .cardInner {
+    transform: rotateY(180deg);
+}
+
+.cardSide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    z-index: 2;
+}
+
+.cardFront {
+    z-index: 3;
+    transform: rotateY(0deg);
+}
+
+.cardBack {
+    transform: rotateY(180deg);
 }
 
 @media (max-width: 900px) {

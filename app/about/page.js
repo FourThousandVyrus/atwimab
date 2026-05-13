@@ -5,16 +5,20 @@ import WhatsAppButton from '../components/WhatsAppButton';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import BoardAccordion from '../components/BoardAccordion';
+
 export const metadata = {
-    title: 'About Us | Atwima Rural Bank',
-    description: 'Learn about Atwima Rural Bank — our history, mission, values, board of directors, and senior management team.',
+    title: 'About Us | Atwima Community Bank',
+    description: 'Learn about Atwima Community Bank — our history, mission, values, board of directors, and senior management team.',
 };
 
 const boardMembers = [
-    { name: 'Board Chairman', role: 'Chairman', initials: 'BC', avatar: 'https://picsum.photos/seed/boardchairman/200/200' },
-    { name: 'Vice Chairman', role: 'Vice Chairman', initials: 'VC', avatar: 'https://picsum.photos/seed/vicechairman/200/200' },
-    { name: 'Board Member', role: 'Director', initials: 'BM', avatar: 'https://picsum.photos/seed/boardmember1/200/200' },
-    { name: 'Board Member', role: 'Director', initials: 'BM', avatar: 'https://picsum.photos/seed/boardmember2/200/200' },
+    { name: 'Mr. Eric Appiah', role: 'Chairman', avatar: '/MR. ERIC APPIAH chairman.jpg' },
+    { name: 'Diana Adu-Danquah (ESQ)', role: 'Member', avatar: '/DIANA ADU-DANQUAH (ESQ).jpg' },
+    { name: 'Hon. Francisca Oteng Mensah', role: 'Member', avatar: '/HON. FRANCISCA OTENG MENSAH.jpg' },
+    { name: 'Mr. Boasiako Kwaku Duah', role: 'Member', avatar: '/Mr Boasiako Kwaku Duah.jpg' },
+    { name: 'Nana Yim Awere Ababio', role: 'Member', avatar: '/NANA YIM AWERE ABABIO.jpg' },
+    { name: 'Rev. Gyau Apraku', role: 'Member', avatar: '/Rev. Gyau Apraku.jpg' },
 ];
 
 const managementTeam = [
@@ -41,7 +45,7 @@ export default function About() {
                         <nav style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: 'rgba(255,255,255,0.6)', marginBottom: '1.5rem' }}>
                             <Link href="/" style={{ color: 'rgba(255,255,255,0.6)' }}>Home</Link><span>/</span><span>About Us</span>
                         </nav>
-                        <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'var(--text-5xl)', fontWeight: 700, marginBottom: '1rem' }}>About Atwima Rural Bank</h1>
+                        <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'var(--text-5xl)', fontWeight: 700, marginBottom: '1rem' }}>About Atwima Community Bank</h1>
                         <p style={{ fontSize: 'var(--text-lg)', color: 'rgba(255,255,255,0.7)', maxWidth: 600, lineHeight: 1.75 }}>
                             A legacy of trust, service, and community development spanning over three decades.
                         </p>
@@ -56,7 +60,7 @@ export default function About() {
                                 <span className="section-label">Our Story</span>
                                 <h2 className="section-title">A Heritage of Trust</h2>
                                 <p style={{ fontSize: 'var(--text-lg)', color: 'var(--neutral-500)', lineHeight: 1.9, marginBottom: '1.5rem' }}>
-                                    Atwima Rural Bank PLC was incorporated in the early 1980s and has since grown to become one of the most trusted financial institutions in the Ashanti Region. Headquartered in Foase, Atwima, our bank was established with a clear mission: to provide accessible, affordable, and reliable banking services to the communities in the Atwima District and beyond.
+                                    Atwima Community Bank PLC was incorporated in the early 1980s and has since grown to become one of the most trusted financial institutions in the Ashanti Region. Headquartered in Foase, our bank was established with a clear mission: to provide accessible, affordable, and reliable banking services to the communities we serve and beyond.
                                 </p>
                                 <p style={{ fontSize: 'var(--text-lg)', color: 'var(--neutral-500)', lineHeight: 1.9, marginBottom: '1.5rem' }}>
                                     Over the years, we have expanded our reach with 6 branches across the region, serving thousands of individuals, families, and businesses. Our commitment to excellence and community has earned us the trust and loyalty of our customers.
@@ -66,7 +70,7 @@ export default function About() {
                                 </p>
                             </div>
                             <div style={{ position: 'relative', height: '480px', borderRadius: 'var(--radius-2xl)', overflow: 'hidden', boxShadow: 'var(--shadow-xl, 0 20px 60px rgba(0,0,0,0.15))' }}>
-                                <Image fill src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80" alt="Atwima Rural Bank team" sizes="(max-width:768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+                                <Image fill src="/community-hero.png" alt="Atwima Community Bank team" sizes="(max-width:768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
                             </div>
                         </div>
                     </div>
@@ -121,14 +125,8 @@ export default function About() {
                             <h2 className="section-title">Board of Directors</h2>
                             <p className="section-subtitle">Our experienced board provides strategic direction and governance.</p>
                         </div>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2rem', maxWidth: 900, margin: '0 auto' }}>
-                            {boardMembers.map((m, i) => (
-                                <div key={i} style={{ textAlign: 'center' }}>
-                                    <Image src={m.avatar} alt={m.name} width={100} height={100} style={{ borderRadius: '50%', objectFit: 'cover', margin: '0 auto 1rem', display: 'block' }} />
-                                    <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, color: 'var(--neutral-900)', marginBottom: '0.25rem' }}>{m.name}</div>
-                                    <div style={{ fontSize: 'var(--text-sm)', color: 'var(--neutral-500)' }}>{m.role}</div>
-                                </div>
-                            ))}
+                        <div style={{ marginTop: '2rem' }}>
+                            <BoardAccordion />
                         </div>
                     </div>
                 </section>
@@ -141,14 +139,10 @@ export default function About() {
                             <h2 className="section-title">Senior Management</h2>
                             <p className="section-subtitle">Dedicated professionals driving our operations and customer experience.</p>
                         </div>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2rem', maxWidth: 900, margin: '0 auto' }}>
-                            {managementTeam.map((m, i) => (
-                                <div key={i} style={{ textAlign: 'center' }}>
-                                    <Image src={m.avatar} alt={m.name} width={100} height={100} style={{ borderRadius: '50%', objectFit: 'cover', margin: '0 auto 1rem', display: 'block' }} />
-                                    <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, color: 'var(--neutral-900)', marginBottom: '0.25rem' }}>{m.name}</div>
-                                    <div style={{ fontSize: 'var(--text-sm)', color: 'var(--neutral-500)' }}>{m.role}</div>
-                                </div>
-                            ))}
+                        <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+                            <Link href="/management" className="btn btn-primary btn-lg">
+                                Meet the Full Leadership Team
+                            </Link>
                         </div>
                     </div>
                 </section>

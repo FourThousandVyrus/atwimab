@@ -91,6 +91,8 @@
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
+    border: 2px solid white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .authorName {

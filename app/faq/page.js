@@ -10,7 +10,7 @@ const faqs = [
     {
         category: 'Accounts',
         items: [
-            { q: 'What types of accounts does Atwima Rural Bank offer?', a: 'We offer Current Accounts, Savings Accounts, Salary Accounts, Susu Accounts, and Kiddies Accounts — each designed for different financial needs.' },
+            { q: 'What types of accounts does Atwima Community Bank offer?', a: 'We offer Current Accounts, Savings Accounts, Salary Accounts, Susu Accounts, and Kiddies Accounts — each designed for different financial needs.' },
             { q: 'How do I open an account?', a: 'Visit any of our 6 branches with a valid national ID (Ghana Card, Voter\'s ID, or Passport), 2 passport photos, and an initial deposit. You can also call us to book an appointment.' },
             { q: 'What is the minimum balance for a savings account?', a: 'Our savings accounts have a minimal opening deposit. Please contact your nearest branch for the current minimum balance requirements.' },
             { q: 'Can I open a Kiddies Account for my child?', a: 'Yes. A parent or guardian can open a Kiddies Account for a child under 18. You will need the child\'s birth certificate and your own valid ID.' },
@@ -33,7 +33,7 @@ const faqs = [
             { q: 'What investment products are available?', a: 'We offer ARB Fixed Deposits and ARB Shares. Fixed deposits currently earn up to 22% per annum for a 12-month term.' },
             { q: 'What is the minimum amount for a fixed deposit?', a: 'Contact our branches for current minimum deposit requirements as they may be updated periodically.' },
             { q: 'Can I withdraw my fixed deposit early?', a: 'Early withdrawal is subject to a penalty and reduced interest rate. Please discuss terms with our investment team before opening a fixed deposit.' },
-            { q: 'What are ARB Shares?', a: 'ARB Shares are equity shares in Atwima Rural Bank. As a shareholder you are a co-owner of the bank and receive annual dividend payments based on the bank\'s performance.' },
+            { q: 'What are ARB Shares?', a: 'ARB Shares are equity shares in Atwima Community Bank. As a shareholder you are a co-owner of the bank and receive annual dividend payments based on the bank\'s performance.' },
         ],
     },
     {

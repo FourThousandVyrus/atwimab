@@ -1,6 +1,6 @@
-# Atwima Rural Bank — Ship Plan
+# Atwima Community Bank — Ship Plan
 
-**Project:** Atwima Rural Bank PLC Website  
+**Project:** Atwima Community Bank PLC Website  
 **Stack:** Next.js 15+ · React 19 · CSS Modules  
 **Brand Color:** `#2596be` (replaces legacy `#214F8B`)  
 **Constraint:** No online banking, no login, no mobile app. Pure content + tools site.

@@ -38,12 +38,12 @@ export default function WhyChooseUs() {
     }, []);
 
     return (
-        <section className={`section-alt section ${styles.section}`} ref={ref}>
+        <section className={`section-alt section ${styles.section}`} ref={ref} style={{ paddingTop: 0 }}>
             <div className="container">
                 <div className="section-header centered">
                     <span className="section-label">Why Choose Us</span>
                     <h2 className="section-title">Built on Trust. Driven by Service.</h2>
-                    <p className="section-subtitle">Atwima Rural Bank has been the financial backbone of families and businesses in the Ashanti Region for over three decades.</p>
+                    <p className="section-subtitle">Atwima Community Bank has been the financial backbone of families and businesses in the Ashanti Region for over three decades.</p>
                 </div>
                 <div className={`${styles.grid} stagger-children`}>
                     {features.map((f) => (

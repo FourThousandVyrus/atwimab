@@ -5,13 +5,13 @@ import WhatsAppButton from '../components/WhatsAppButton';
 import Link from 'next/link';
 
 export const metadata = {
-    title: 'Remittance | Atwima Rural Bank',
-    description: 'Receive money from friends and relatives worldwide through Western Union and other transfer services at Atwima Rural Bank.',
+    title: 'Remittance | Atwima Community Bank',
+    description: 'Receive money from friends and relatives worldwide through Western Union and other transfer services at Atwima Community Bank.',
 };
 
 const steps = [
     { num: '01', title: 'Get Reference Number', desc: 'Obtain the Money Transfer Control Number (MTCN) from the sender.', icon: '📝' },
-    { num: '02', title: 'Visit a Branch', desc: 'Visit any Atwima Rural Bank branch with your personal identification and relevant documentation.', icon: '🏦' },
+    { num: '02', title: 'Visit a Branch', desc: 'Visit any Atwima Community Bank branch with your personal identification and relevant documentation.', icon: '🏦' },
     { num: '03', title: 'Verify Transaction', desc: 'A friendly consultant will assist you by capturing the relevant transaction details and verifying your identity.', icon: '✅' },
     { num: '04', title: 'Receive Payout', desc: 'Once approved, you will receive your transaction payout in Ghana Cedis. Fast, secure, and reliable.', icon: '💵' },
 ];

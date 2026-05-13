@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -39,21 +39,41 @@ function getBranchStatus() {
 export default function Contact() {
     const [msgForm, setMsgForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
     const [msgSent, setMsgSent] = useState(false);
+    const [isSending, setIsSending] = useState(false);
 
+    const [activeForm, setActiveForm] = useState('message'); // 'message' or 'appointment'
     const [appt, setAppt] = useState({ name: '', phone: '', branch: '', date: '', service: '' });
     const [apptSent, setApptSent] = useState(false);
 
     const setMsg = (k) => (e) => setMsgForm(prev => ({ ...prev, [k]: e.target.value }));
     const setAp = (k) => (e) => setAppt(prev => ({ ...prev, [k]: e.target.value }));
 
-    const handleMsgSubmit = (e) => {
+    const handleMsgSubmit = async (e) => {
         e.preventDefault();
-        setMsgSent(true);
+        setIsSending(true);
+        
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(msgForm),
+            });
+
+            if (response.ok) {
+                setMsgSent(true);
+            } else {
+                alert('Something went wrong. Please try again or call us directly.');
+            }
+        } catch (error) {
+            alert('Failed to connect to the server. Please check your internet and try again.');
+        } finally {
+            setIsSending(false);
+        }
     };
 
     const handleApptSubmit = (e) => {
         e.preventDefault();
-        const msg = `Hello Atwima Rural Bank!%0A%0AI would like to book a branch visit:%0A%0AName: ${encodeURIComponent(appt.name)}%0APhone: ${encodeURIComponent(appt.phone)}%0ABranch: ${encodeURIComponent(appt.branch)}%0APreferred Date: ${encodeURIComponent(appt.date)}%0AService: ${encodeURIComponent(appt.service)}%0A%0APlease confirm my appointment. Thank you!`;
+        const msg = `Hello Atwima Community Bank!%0A%0AI would like to book a branch visit:%0A%0AName: ${encodeURIComponent(appt.name)}%0APhone: ${encodeURIComponent(appt.phone)}%0ABranch: ${encodeURIComponent(appt.branch)}%0APreferred Date: ${encodeURIComponent(appt.date)}%0AService: ${encodeURIComponent(appt.service)}%0A%0APlease confirm my appointment. Thank you!`;
         window.open(`https://wa.me/233501387040?text=${msg}`, '_blank', 'noopener,noreferrer');
         setApptSent(true);
     };
@@ -124,119 +144,153 @@ export default function Contact() {
                 {/* Book a Visit + Send a Message */}
                 <section className="section section-alt">
                     <div className="container">
-                        <div className={styles.formsGrid}>
+                        
+                        {/* Form Switcher */}
+                        <div className={styles.formToggleWrapper}>
+                            <div className={styles.formToggle}>
+                                <button 
+                                    className={`${styles.toggleBtn} ${activeForm === 'message' ? styles.active : ''}`}
+                                    onClick={() => setActiveForm('message')}
+                                >
+                                    Send Us a Message
+                                </button>
+                                <button 
+                                    className={`${styles.toggleBtn} ${activeForm === 'appointment' ? styles.active : ''}`}
+                                    onClick={() => setActiveForm('appointment')}
+                                >
+                                    Book a Branch Visit
+                                </button>
+                                <div className={`${styles.toggleSlider} ${activeForm === 'appointment' ? styles.slideRight : ''}`}></div>
+                            </div>
+                        </div>
 
-                            {/* Book Appointment */}
-                            <div className={styles.formPanel}>
-                                <div className={styles.formPanelHeader}>
-                                    <div className={styles.formPanelIcon} style={{ background: 'var(--primary-100)' }}>
-                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary-600)" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                                    </div>
-                                    <div>
-                                        <h2 className={styles.formPanelTitle}>Book a Branch Visit</h2>
-                                        <p className={styles.formPanelSub}>We&apos;ll confirm via WhatsApp within 1 business hour.</p>
+                        <div className={`${styles.cardContainer} ${activeForm === 'appointment' ? styles.isFlipped : ''}`}>
+                            <div className={styles.cardInner}>
+                                
+                                {/* Front Side: Send a Message */}
+                                <div className={`${styles.cardSide} ${styles.cardFront}`}>
+                                    <div className={styles.formPanel}>
+                                        <div className={styles.formPanelHeader}>
+                                            <div className={styles.formPanelIcon} style={{ background: 'var(--secondary-100, #e6f4ea)' }}>
+                                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--secondary-600, #2d8a3e)" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                            </div>
+                                            <div>
+                                                <h2 className={styles.formPanelTitle}>Send Us a Message</h2>
+                                                <p className={styles.formPanelSub}>We respond within 24 hours on business days.</p>
+                                            </div>
+                                        </div>
+
+                                        {msgSent ? (
+                                            <div className={styles.successBox}>
+                                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--secondary-500)" strokeWidth="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                                <h3>Message Received!</h3>
+                                                <p>Thank you for reaching out. Our team will respond within 24 business hours.</p>
+                                                <button className="btn btn-secondary" onClick={() => { setMsgSent(false); setMsgForm({ name: '', email: '', phone: '', subject: '', message: '' }); }}>Send Another</button>
+                                            </div>
+                                        ) : (
+                                            <form onSubmit={handleMsgSubmit} className={styles.form}>
+                                                <div className={styles.row2}>
+                                                    <div className="form-group">
+                                                        <label className="form-label">Full Name *</label>
+                                                        <input className="form-input" type="text" required placeholder="Kwame Mensah" value={msgForm.name} onChange={setMsg('name')} />
+                                                    </div>
+                                                    <div className="form-group">
+                                                        <label className="form-label">Email *</label>
+                                                        <input className="form-input" type="email" required placeholder="you@example.com" value={msgForm.email} onChange={setMsg('email')} />
+                                                    </div>
+                                                </div>
+                                                <div className={styles.row2}>
+                                                    <div className="form-group">
+                                                        <label className="form-label">Phone Number</label>
+                                                        <input className="form-input" type="tel" placeholder="0501 000 000" value={msgForm.phone} onChange={setMsg('phone')} />
+                                                    </div>
+                                                    <div className="form-group">
+                                                        <label className="form-label">I'm interested in... *</label>
+                                                        <select className="form-input" required value={msgForm.subject} onChange={setMsg('subject')}>
+                                                            <option value="">Select a topic</option>
+                                                            <option value="Account Opening">Open a New Account</option>
+                                                            <option value="Loan Inquiry">Loan Application / Inquiry</option>
+                                                            <option value="Investments">Fixed Deposit & Investments</option>
+                                                            <option value="Remittance">Western Union / Remittance</option>
+                                                            <option value="Mobile Banking">Mobile Banking & App Support</option>
+                                                            <option value="General Enquiry">General Enquiry</option>
+                                                            <option value="Feedback">Feedback & Suggestions</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div className="form-group">
+                                                    <label className="form-label">Message *</label>
+                                                    <textarea className="form-input" rows={5} required placeholder="Tell us more..." value={msgForm.message} onChange={setMsg('message')} />
+                                                </div>
+                                                <button type="submit" className="btn btn-cta" disabled={isSending} style={{ width: '100%', justifyContent: 'center' }}>
+                                                    {isSending ? 'Sending Message...' : 'Send Message'}
+                                                </button>
+                                            </form>
+                                        )}
                                     </div>
                                 </div>
 
-                                {apptSent ? (
-                                    <div className={styles.successBox}>
-                                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--secondary-500)" strokeWidth="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                                        <h3>Appointment Request Sent!</h3>
-                                        <p>Your request was forwarded to our team via WhatsApp. We&apos;ll confirm your visit shortly.</p>
-                                        <button className="btn btn-secondary" onClick={() => { setApptSent(false); setAppt({ name: '', phone: '', branch: '', date: '', service: '' }); }}>Book Another</button>
-                                    </div>
-                                ) : (
-                                    <form onSubmit={handleApptSubmit} className={styles.form}>
-                                        <div className={styles.row2}>
-                                            <div className="form-group">
-                                                <label className="form-label">Full Name *</label>
-                                                <input className="form-input" type="text" required placeholder="Your full name" value={appt.name} onChange={setAp('name')} />
+                                {/* Back Side: Book Appointment */}
+                                <div className={`${styles.cardSide} ${styles.cardBack}`}>
+                                    <div className={styles.formPanel}>
+                                        <div className={styles.formPanelHeader}>
+                                            <div className={styles.formPanelIcon} style={{ background: 'var(--primary-100)' }}>
+                                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary-600)" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                                             </div>
-                                            <div className="form-group">
-                                                <label className="form-label">Phone Number *</label>
-                                                <input className="form-input" type="tel" required placeholder="0501 234 567" value={appt.phone} onChange={setAp('phone')} />
+                                            <div>
+                                                <h2 className={styles.formPanelTitle}>Book a Branch Visit</h2>
+                                                <p className={styles.formPanelSub}>We&apos;ll confirm via WhatsApp within 1 business hour.</p>
                                             </div>
                                         </div>
-                                        <div className={styles.row2}>
-                                            <div className="form-group">
-                                                <label className="form-label">Preferred Branch *</label>
-                                                <select className="form-input" required value={appt.branch} onChange={setAp('branch')}>
-                                                    <option value="">Select a branch</option>
-                                                    {branches.map(b => <option key={b.name} value={b.name}>{b.name}</option>)}
-                                                </select>
-                                            </div>
-                                            <div className="form-group">
-                                                <label className="form-label">Preferred Date *</label>
-                                                <input className="form-input" type="date" required value={appt.date} onChange={setAp('date')} min={new Date().toISOString().split('T')[0]} />
-                                            </div>
-                                        </div>
-                                        <div className="form-group">
-                                            <label className="form-label">Service Needed *</label>
-                                            <select className="form-input" required value={appt.service} onChange={setAp('service')}>
-                                                <option value="">Select a service</option>
-                                                {services.map(s => <option key={s} value={s}>{s}</option>)}
-                                            </select>
-                                        </div>
-                                        <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-                                            Confirm via WhatsApp
-                                        </button>
-                                    </form>
-                                )}
-                            </div>
 
-                            {/* Send a Message */}
-                            <div className={styles.formPanel}>
-                                <div className={styles.formPanelHeader}>
-                                    <div className={styles.formPanelIcon} style={{ background: 'var(--secondary-100, #e6f4ea)' }}>
-                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--secondary-600, #2d8a3e)" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                                    </div>
-                                    <div>
-                                        <h2 className={styles.formPanelTitle}>Send Us a Message</h2>
-                                        <p className={styles.formPanelSub}>We respond within 24 hours on business days.</p>
+                                        {apptSent ? (
+                                            <div className={styles.successBox}>
+                                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--secondary-500)" strokeWidth="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                                <h3>Appointment Request Sent!</h3>
+                                                <p>Your request was forwarded to our team via WhatsApp. We&apos;ll confirm your visit shortly.</p>
+                                                <button className="btn btn-secondary" onClick={() => { setApptSent(false); setAppt({ name: '', phone: '', branch: '', date: '', service: '' }); }}>Book Another</button>
+                                            </div>
+                                        ) : (
+                                            <form onSubmit={handleApptSubmit} className={styles.form}>
+                                                <div className={styles.row2}>
+                                                    <div className="form-group">
+                                                        <label className="form-label">Full Name *</label>
+                                                        <input className="form-input" type="text" required placeholder="Your full name" value={appt.name} onChange={setAp('name')} />
+                                                    </div>
+                                                    <div className="form-group">
+                                                        <label className="form-label">Phone Number *</label>
+                                                        <input className="form-input" type="tel" required placeholder="0501 234 567" value={appt.phone} onChange={setAp('phone')} />
+                                                    </div>
+                                                </div>
+                                                <div className={styles.row2}>
+                                                    <div className="form-group">
+                                                        <label className="form-label">Preferred Branch *</label>
+                                                        <select className="form-input" required value={appt.branch} onChange={setAp('branch')}>
+                                                            <option value="">Select a branch</option>
+                                                            {branches.map(b => <option key={b.name} value={b.name}>{b.name}</option>)}
+                                                        </select>
+                                                    </div>
+                                                    <div className="form-group">
+                                                        <label className="form-label">Preferred Date *</label>
+                                                        <input className="form-input" type="date" required value={appt.date} onChange={setAp('date')} min={new Date().toISOString().split('T')[0]} />
+                                                    </div>
+                                                </div>
+                                                <div className="form-group">
+                                                    <label className="form-label">Service Needed *</label>
+                                                    <select className="form-input" required value={appt.service} onChange={setAp('service')}>
+                                                        <option value="">Select a service</option>
+                                                        {services.map(s => <option key={s} value={s}>{s}</option>)}
+                                                    </select>
+                                                </div>
+                                                <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                                                    Confirm via WhatsApp
+                                                </button>
+                                            </form>
+                                        )}
                                     </div>
                                 </div>
-
-                                {msgSent ? (
-                                    <div className={styles.successBox}>
-                                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--secondary-500)" strokeWidth="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                                        <h3>Message Received!</h3>
-                                        <p>Thank you for reaching out. Our team will respond within 24 business hours.</p>
-                                        <button className="btn btn-secondary" onClick={() => { setMsgSent(false); setMsgForm({ name: '', email: '', phone: '', subject: '', message: '' }); }}>Send Another</button>
-                                    </div>
-                                ) : (
-                                    <form onSubmit={handleMsgSubmit} className={styles.form}>
-                                        <div className={styles.row2}>
-                                            <div className="form-group">
-                                                <label className="form-label">Full Name *</label>
-                                                <input className="form-input" type="text" required placeholder="Kwame Mensah" value={msgForm.name} onChange={setMsg('name')} />
-                                            </div>
-                                            <div className="form-group">
-                                                <label className="form-label">Email *</label>
-                                                <input className="form-input" type="email" required placeholder="you@example.com" value={msgForm.email} onChange={setMsg('email')} />
-                                            </div>
-                                        </div>
-                                        <div className={styles.row2}>
-                                            <div className="form-group">
-                                                <label className="form-label">Phone Number</label>
-                                                <input className="form-input" type="tel" placeholder="0501 000 000" value={msgForm.phone} onChange={setMsg('phone')} />
-                                            </div>
-                                            <div className="form-group">
-                                                <label className="form-label">Subject *</label>
-                                                <input className="form-input" type="text" required placeholder="How can we help?" value={msgForm.subject} onChange={setMsg('subject')} />
-                                            </div>
-                                        </div>
-                                        <div className="form-group">
-                                            <label className="form-label">Message *</label>
-                                            <textarea className="form-input" rows={5} required placeholder="Tell us more..." value={msgForm.message} onChange={setMsg('message')} />
-                                        </div>
-                                        <button type="submit" className="btn btn-cta" style={{ width: '100%', justifyContent: 'center' }}>
-                                            Send Message
-                                        </button>
-                                    </form>
-                                )}
                             </div>
-
                         </div>
                     </div>
                 </section>
@@ -247,4 +301,3 @@ export default function Contact() {
         </>
     );
 }
-

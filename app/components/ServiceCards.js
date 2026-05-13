@@ -1,7 +1,8 @@
 'use client';
 import Link from 'next/link';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './ServiceCards.module.css';
+import Image from 'next/image';
 
 const services = [
     {
@@ -55,7 +56,23 @@ const services = [
 ];
 
 export default function ServiceCards() {
+    const [currentBg, setCurrentBg] = useState(0);
+    const bgImages = [
+        '/service_1.png',
+        '/service_2.png',
+        '/service_3.png',
+        '/service_4.png',
+        '/service_5.png',
+    ];
+
     const ref = useRef(null);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentBg((prev) => (prev + 1) % bgImages.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -71,30 +88,81 @@ export default function ServiceCards() {
     }, []);
 
     return (
-        <section className="section" ref={ref}>
-            <div className="container">
-                <div className={`section-header centered ${styles.header}`}>
-                    <span className="section-label">Our Services</span>
-                    <h2 className="section-title">Banking Solutions for Every Need</h2>
-                    <p className="section-subtitle">
-                        Whether you are saving for the future, growing your business, or need financing —
-                        we have the right solution.
-                    </p>
+        <section className={styles.mainSection} ref={ref} style={{ paddingBottom: 0 }}>
+            <div className={styles.heroBackground}>
+                {bgImages.map((src, idx) => (
+                    <Image 
+                        key={src}
+                        src={src} 
+                        alt={`Atwima Service Background ${idx + 1}`} 
+                        fill
+                        className={`${styles.bgImage} ${idx === currentBg ? styles.activeBg : ''}`}
+                        priority={idx === 0}
+                    />
+                ))}
+                <div className={styles.overlay}></div>
+                <div className="container" style={{ position: 'relative', zIndex: 3 }}>
+                    <div className={`section-header centered ${styles.header}`}>
+                        <span className={styles.whiteLabel}>Our Services</span>
+                        <h2 className={styles.whiteTitle}>Banking Solutions for Every Need</h2>
+                        <p className={styles.whiteSubtitle}>
+                            Whether you are saving for the future, growing your business, or need financing —
+                            we have the right solution.
+                        </p>
+                    </div>
+
+                    <div className={styles.grid}>
+                        {services.map((service, i) => (
+                            <Link href={service.href} key={service.title} className={styles.card} style={{ '--delay': `${i * 100}ms` }}>
+                                <div className={styles.cardIcon} style={{ background: service.bg, color: service.color }}>
+                                    {service.icon}
+                                </div>
+                                <h3 className={styles.cardTitle}>{service.title}</h3>
+                                <p className={styles.cardText}>{service.description}</p>
+                                <span className={styles.cardLink} style={{ color: service.color }}>
+                                    Learn More
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                                </span>
+                            </Link>
+                        ))}
+                    </div>
                 </div>
-                <div className={styles.grid}>
-                    {services.map((service, i) => (
-                        <Link href={service.href} key={service.title} className={styles.card} style={{ '--delay': `${i * 100}ms` }}>
-                            <div className={styles.cardIcon} style={{ background: service.bg, color: service.color }}>
-                                {service.icon}
+            </div>
+
+            <div className="container">
+                {/* Concept 1: Global Connectivity Partner Banner */}
+                <div className={styles.partnerBanner}>
+                    <div className={styles.connectivityBg}></div>
+                    <div className={styles.partnerContainer}>
+                        <div className={styles.partnerContent}>
+                            <div className={styles.partnerInfo}>
+                                <span className={styles.partnerLabel}>Global Connectivity</span>
+                                <h3 className={styles.partnerTitle}>Your Gateway to World-Wide Transfers</h3>
+                                <p className={styles.partnerDesc}>
+                                    We've partnered with the world's leading financial networks to ensure your money 
+                                    moves as fast as you do. Secure, instant, and reliable.
+                                </p>
                             </div>
-                            <h3 className={styles.cardTitle}>{service.title}</h3>
-                            <p className={styles.cardText}>{service.description}</p>
-                            <span className={styles.cardLink} style={{ color: service.color }}>
-                                Learn More
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-                            </span>
-                        </Link>
-                    ))}
+                            <div className={styles.logosMasonry}>
+                                <div className={`${styles.glassCard} ${styles.unityCard}`}>
+                                    <Image src="/unity.png" alt="UnityLink" width={140} height={70} className={styles.partnerLogo} />
+                                    <span className={styles.partnerName}>UnityLink</span>
+                                </div>
+                                <div className={`${styles.glassCard} ${styles.wuCard}`}>
+                                    <Image src="/wu.png" alt="Western Union" width={140} height={70} className={styles.partnerLogo} />
+                                    <span className={styles.partnerName}>Western Union</span>
+                                </div>
+                                <div className={`${styles.glassCard} ${styles.mtnCard}`}>
+                                    <Image src="/mtn.jpeg" alt="MTN MoMo" width={140} height={70} className={styles.partnerLogo} />
+                                    <span className={styles.partnerName}>MTN MoMo</span>
+                                </div>
+                                <div className={`${styles.glassCard} ${styles.ezwichCard}`}>
+                                    <Image src="/ezwich.png" alt="e-zwich" width={140} height={70} className={styles.partnerLogo} />
+                                    <span className={styles.partnerName}>e-zwich</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

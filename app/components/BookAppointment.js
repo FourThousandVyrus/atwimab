@@ -29,7 +29,7 @@ export default function BookAppointment() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const msg = `Hello Atwima Rural Bank!%0A%0AI would like to book an appointment:%0A%0AName: ${encodeURIComponent(form.name)}%0APhone: ${encodeURIComponent(form.phone)}%0ABranch: ${encodeURIComponent(form.branch)}%0APreferred Date: ${encodeURIComponent(form.date)}%0AService: ${encodeURIComponent(form.service)}%0A%0APlease confirm my appointment. Thank you!`;
+        const msg = `Hello Atwima Community Bank!%0A%0AI would like to book an appointment:%0A%0AName: ${encodeURIComponent(form.name)}%0APhone: ${encodeURIComponent(form.phone)}%0ABranch: ${encodeURIComponent(form.branch)}%0APreferred Date: ${encodeURIComponent(form.date)}%0AService: ${encodeURIComponent(form.service)}%0A%0APlease confirm my appointment. Thank you!`;
         window.open(`https://wa.me/233501387040?text=${msg}`, '_blank', 'noopener,noreferrer');
         setOpen(false);
         setForm({ name: '', phone: '', branch: '', date: '', service: '' });

@@ -5,7 +5,7 @@ import WhatsAppButton from '../components/WhatsAppButton';
 import Link from 'next/link';
 
 export const metadata = {
-    title: 'Investments | Atwima Rural Bank',
+    title: 'Investments | Atwima Community Bank',
     description: 'Grow your wealth with ARB Fixed Deposit accounts and bank shares. Competitive returns on your investments.',
 };
 
@@ -57,7 +57,7 @@ export default function Investments() {
                                 <span style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>🏛️</span>
                                 <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'var(--text-2xl)', fontWeight: 700, color: 'var(--neutral-900)', marginBottom: '0.75rem' }}>ARB Shares</h2>
                                 <p style={{ fontSize: 'var(--text-base)', color: 'var(--neutral-500)', lineHeight: 1.75, marginBottom: '1.5rem' }}>
-                                    Own a part of Atwima Rural Bank by purchasing shares. Earn dividends and participate in the bank&apos;s growth story.
+                                    Own a part of Atwima Community Bank by purchasing shares. Earn dividends and participate in the bank&apos;s growth story.
                                 </p>
                                 <div style={{ background: 'var(--primary-50)', borderRadius: 'var(--radius-md)', padding: '1rem', marginBottom: '1.5rem' }}>
                                     <div style={{ fontSize: 'var(--text-sm)', color: 'var(--primary-700)', fontWeight: 600, marginBottom: '0.25rem' }}>Investment Type</div>

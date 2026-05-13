@@ -21,7 +21,7 @@ export default function CareersPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const text = `Hello Atwima Rural Bank!%0A%0AI am interested in a career opportunity.%0A%0AName: ${encodeURIComponent(form.name)}%0AEmail: ${encodeURIComponent(form.email)}%0APhone: ${encodeURIComponent(form.phone)}%0ARole of Interest: ${encodeURIComponent(form.role)}%0A%0AMessage: ${encodeURIComponent(form.message)}`;
+        const text = `Hello Atwima Community Bank!%0A%0AI am interested in a career opportunity.%0A%0AName: ${encodeURIComponent(form.name)}%0AEmail: ${encodeURIComponent(form.email)}%0APhone: ${encodeURIComponent(form.phone)}%0ARole of Interest: ${encodeURIComponent(form.role)}%0A%0AMessage: ${encodeURIComponent(form.message)}`;
         window.open(`https://wa.me/233501387040?text=${text}`, '_blank', 'noopener,noreferrer');
         setSent(true);
     };
@@ -33,7 +33,7 @@ export default function CareersPage() {
                 <section className={styles.hero}>
                     <div className="container">
                         <span className="section-label">Join the Team</span>
-                        <h1>Careers at Atwima Rural Bank</h1>
+                        <h1>Careers at Atwima Community Bank</h1>
                         <p className={styles.heroSub}>Be part of a team that is making a real difference in the lives of families and businesses across the Ashanti Region.</p>
                     </div>
                 </section>

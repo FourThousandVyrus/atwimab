@@ -9,7 +9,7 @@ export default function CTABanner() {
                 <div className={styles.content}>
                     <h2 className={styles.title}>Ready to Get Started?</h2>
                     <p className={styles.text}>
-                        Open an account today and experience the Atwima Rural Bank difference.
+                        Open an account today and experience the Atwima Community Bank difference.
                         Visit any of our 6 branches or speak with an advisor.
                     </p>
                     <div className={styles.actions}>

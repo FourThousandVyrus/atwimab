@@ -5,7 +5,7 @@ import WhatsAppButton from '../components/WhatsAppButton';
 import Link from 'next/link';
 
 export const metadata = {
-    title: 'Loans | Atwima Rural Bank',
+    title: 'Loans | Atwima Community Bank',
     description: 'Explore our loan products — salary loans, commercial loans, transport loans, susu loans, and more with competitive rates and flexible terms.',
 };
 

@@ -1,0 +1,137 @@
+.partnerSection {
+    background-color: #f59e0b; /* Vibrant Yellow/Gold */
+    padding: var(--space-16) 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.partnerSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15%;
+    height: 100%;
+    background: #003366; /* Deep Navy Blue */
+    clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
+    opacity: 1;
+}
+
+.partnerSection::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 10%;
+    height: 100%;
+    background: #00CCFF; /* Bright Cyan */
+    clip-path: polygon(0 60%, 100% 100%, 0% 100%);
+    opacity: 1;
+}
+
+.container {
+    max-width: var(--container-wide);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    flex-wrap: wrap;
+}
+
+.visual {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+}
+
+.personImage {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.logosGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+}
+
+.logoItem {
+    background: white;
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease;
+}
+
+.logoItem:hover {
+    transform: translateY(-5px);
+}
+
+.partnerLogo {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.title {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: #003366;
+    margin-bottom: var(--space-6);
+    line-height: 1.2;
+}
+
+.actions {
+    display: flex;
+    gap: var(--space-4);
+}
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .visual {
+        order: 2;
+    }
+
+    .info {
+        order: 1;
+    }
+
+    .logosGrid {
+        justify-content: center;
+    }
+
+    .actions {
+        justify-content: center;
+    }
+    
+    .partnerSection::before, .partnerSection::after {
+        display: none;
+    }
+}

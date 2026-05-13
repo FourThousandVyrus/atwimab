@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import styles from './Footer.module.css';
 
+import Image from 'next/image';
+
 export default function Footer() {
     return (
         <footer className={styles.footer}>
@@ -8,14 +10,15 @@ export default function Footer() {
                 <div className={styles.grid}>
                     {/* Brand Column */}
                     <div className={styles.brand}>
-                        <div className={styles.logo}>
-                            <svg width="36" height="36" viewBox="0 0 40 40" fill="none">
-                                <rect width="40" height="40" rx="8" fill="#2596be" />
-                                <path d="M10 28L20 12L30 28H10Z" fill="#D69E2E" opacity="0.9" />
-                                <path d="M15 28L20 18L25 28H15Z" fill="white" opacity="0.8" />
-                            </svg>
-                            <span className={styles.logoName}>Atwima Rural Bank</span>
-                        </div>
+                        <Link href="/" className={styles.logo}>
+                            <Image 
+                                src="/logo.png" 
+                                alt="Atwima Community Bank Logo" 
+                                width={160} 
+                                height={50} 
+                                style={{ objectFit: 'contain' }}
+                            />
+                        </Link>
                         <p className={styles.brandText}>
                             A friend in need is a friend indeed. Serving the Ashanti Region with trusted banking services for over 30 years.
                         </p>
@@ -90,7 +93,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className={styles.bottomBar}>
                     <div className={styles.bottomLeft}>
-                        <p>&copy; {new Date().getFullYear()} Atwima Rural Bank PLC. All rights reserved.</p>
+                        <p>&copy; {new Date().getFullYear()} Atwima Community Bank PLC. All rights reserved.</p>
                     </div>
                     <div className={styles.bottomCenter}>
                         <div className={styles.regulatory}>
