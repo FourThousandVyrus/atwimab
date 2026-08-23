@@ -96,11 +96,12 @@
     border-radius: var(--radius-lg);
 }
 
-.impact strong {
+.impactTitle {
     display: block;
     font-size: var(--text-base);
     color: var(--neutral-900);
     margin-bottom: var(--space-1);
+    font-weight: 700;
 }
 
 .impact p {

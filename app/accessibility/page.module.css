@@ -1,0 +1,77 @@
+.hero {
+    background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%);
+    padding: var(--space-12) var(--container-padding);
+    text-align: center;
+    color: white;
+    margin-top: var(--nav-height);
+}
+
+.title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+}
+
+.subtitle {
+    font-size: var(--text-lg);
+    opacity: 0.9;
+}
+
+.content {
+    line-height: 1.8;
+}
+
+.content h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-700);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+}
+
+.content h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-600);
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-2);
+}
+
+.content p {
+    margin-bottom: var(--space-4);
+    color: var(--neutral-700);
+}
+
+.content ul {
+    margin-left: var(--space-5);
+    margin-bottom: var(--space-4);
+    color: var(--neutral-700);
+}
+
+.content li {
+    margin-bottom: var(--space-2);
+    list-style-type: disc;
+}
+
+.content strong {
+    color: var(--primary-700);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: var(--space-8) var(--container-padding);
+    }
+
+    .title {
+        font-size: 1.75rem;
+    }
+
+    .content h2 {
+        font-size: 1.25rem;
+    }
+
+    .content h3 {
+        font-size: 1.1rem;
+    }
+}

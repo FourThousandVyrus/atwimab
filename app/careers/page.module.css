@@ -6,14 +6,16 @@
 }
 
 .hero h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
     color: #fff;
     margin: var(--space-3) 0 var(--space-4);
+    font-family: var(--font-heading);
+    font-weight: 800;
 }
 
 .heroSub {
     font-size: 1.125rem;
-    color: var(--primary-200);
+    color: rgba(255, 255, 255, 0.85);
     max-width: 640px;
     margin: 0 auto;
     line-height: 1.7;
@@ -36,18 +38,18 @@
 }
 
 .valueCard {
-    background: var(--bg-card);
-    border-radius: var(--radius-lg);
+    background: var(--bg-primary);
+    border-radius: var(--radius-xl);
     padding: var(--space-6);
     text-align: center;
-    box-shadow: var(--shadow-card);
-    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--neutral-100);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .valueCard:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
 }
 
 .valueIcon {
@@ -59,8 +61,9 @@
 .valueTitle {
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--neutral-900);
     margin-bottom: var(--space-2);
+    font-family: var(--font-heading);
 }
 
 /* No Vacancy */
@@ -69,9 +72,9 @@
     margin: 0 auto;
     text-align: center;
     padding: var(--space-12) var(--space-8);
-    background: var(--bg-card);
-    border-radius: var(--radius-xl);
-    border: 2px dashed var(--border-color);
+    background: var(--bg-primary);
+    border-radius: var(--radius-2xl);
+    border: 2px dashed var(--neutral-200);
 }
 
 .noVacancyIcon {
@@ -81,12 +84,14 @@
 
 .noVacancy h3 {
     font-size: 1.4rem;
-    color: var(--text-primary);
+    color: var(--neutral-900);
     margin-bottom: var(--space-3);
+    font-family: var(--font-heading);
+    font-weight: 700;
 }
 
 .noVacancy p {
-    color: var(--text-secondary);
+    color: var(--neutral-600);
     line-height: 1.7;
 }
 
@@ -103,7 +108,7 @@
 }
 
 .formIntro p {
-    color: var(--text-secondary);
+    color: var(--neutral-600);
     line-height: 1.7;
     margin: var(--space-4) 0 var(--space-6);
 }
@@ -119,15 +124,64 @@
     align-items: center;
     gap: var(--space-3);
     font-size: 0.95rem;
-    color: var(--text-secondary);
+    color: var(--neutral-700);
+}
+
+.mailLink {
+    color: var(--primary-600);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.mailLink:hover {
+    color: var(--primary-700);
 }
 
 .formCard {
-    background: var(--bg-card);
-    border-radius: var(--radius-xl);
+    background: var(--bg-primary);
+    border-radius: var(--radius-2xl);
     padding: var(--space-8);
     box-shadow: var(--shadow-lg);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--neutral-100);
+}
+
+/* Focused elements */
+.formCard input:focus,
+.formCard textarea:focus {
+    outline: none !important;
+    border-color: var(--primary-600) !important;
+    box-shadow: 0 0 0 3px rgba(37, 150, 190, 0.15) !important;
+}
+
+.inputError {
+    border-color: #ef4444 !important;
+}
+
+.inputError:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+}
+
+.errorText {
+    display: block;
+    color: #ef4444;
+    font-size: var(--text-xs);
+    margin-top: var(--space-1);
+    font-weight: 500;
+}
+
+.submissionNotice {
+    background: var(--primary-50);
+    border-left: 4px solid var(--primary-600);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    font-size: var(--text-xs);
+    color: var(--neutral-600);
+    margin-bottom: var(--space-4);
+    line-height: 1.5;
+}
+
+.submissionNotice strong {
+    color: var(--primary-900);
 }
 
 .row {
@@ -147,16 +201,18 @@ textarea.form-input {
 /* Success state */
 .success {
     text-align: center;
-    padding: var(--space-8);
+    padding: var(--space-8) var(--space-4);
 }
 
 .success h3 {
     font-size: 1.4rem;
-    color: var(--text-primary);
+    color: var(--neutral-900);
     margin: var(--space-4) 0 var(--space-2);
+    font-family: var(--font-heading);
+    font-weight: 700;
 }
 
 .success p {
-    color: var(--text-secondary);
+    color: var(--neutral-600);
     line-height: 1.6;
 }

@@ -1,0 +1,96 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    /* Fully opaque dark background with strong blur */
+    background: rgba(6, 26, 36, 0.98);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    opacity: 0;
+    visibility: hidden;
+    will-change: opacity, visibility;
+    transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1), visibility 0ms 150ms;
+}
+
+.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.exit {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1), visibility 0ms 150ms;
+}
+
+.loaderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+/* Custom bouncing-ball loader provided by the user */
+.loader {
+    height: 60px;
+    aspect-ratio: 2;
+    border-bottom: 3px solid #0000;
+    /* Gold-tinted dotted line representing the brand */
+    background: 
+      linear-gradient(90deg, rgba(193, 154, 59, 0.6) 50%, #0000 0)
+      -25% 100%/50% 3px repeat-x border-box;
+    position: relative;
+    animation: l3-0 .75s linear infinite;
+}
+
+.loader:before {
+    content: "";
+    position: absolute;
+    inset: auto 42.5% 0;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    /* Brand Red bouncing ball */
+    background: #A92323;
+    box-shadow: 0 0 10px rgba(169, 35, 35, 0.6);
+    animation: l3-1 .75s cubic-bezier(0, 900, 1, 900) infinite;
+}
+
+@keyframes l3-0 {
+    to { background-position: -125% 100%; }
+}
+
+@keyframes l3-1 {
+    0%, 2% { bottom: 0%; }
+    98%, to { bottom: .1%; }
+}
+
+.loaderText {
+    color: #e2e8f0;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    opacity: 0.9;
+}
+
+.dots {
+    display: inline-block;
+    animation: fadeDots 1.5s infinite;
+}
+
+@keyframes fadeDots {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}

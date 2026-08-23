@@ -1,5 +1,6 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
+import useScrollReveal from '../hooks/useScrollReveal';
 import styles from './RatesSnapshot.module.css';
 
 const rates = [
@@ -20,24 +21,16 @@ const tabs = [
 ];
 
 export default function RatesSnapshot() {
-    const ref = useRef(null);
+    const headerRef = useScrollReveal();
+    const tableRef = useScrollReveal({ threshold: 0.1 });
     const [activeTab, setActiveTab] = useState('all');
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => { if (entry.isIntersecting) entry.target.classList.add('visible'); },
-            { threshold: 0.15 }
-        );
-        if (ref.current) observer.observe(ref.current);
-        return () => observer.disconnect();
-    }, []);
 
     const filtered = activeTab === 'all' ? rates : rates.filter(r => r.type === activeTab);
 
     return (
-        <section className={`section-alt section ${styles.section}`} ref={ref}>
+        <section className={`section-alt section ${styles.section}`}>
             <div className="container">
-                <div className="section-header centered">
+                <div className="section-header centered reveal" ref={headerRef}>
                     <span className="section-label">Current Rates</span>
                     <h2 className="section-title">Competitive Rates for You</h2>
                     <p className="section-subtitle">Transparent rates designed to help your money grow.</p>
@@ -53,7 +46,7 @@ export default function RatesSnapshot() {
                         </button>
                     ))}
                 </div>
-                <div className={styles.tableWrap}>
+                <div className={`${styles.tableWrap} reveal-subtle`} ref={tableRef}>
                     <table className={styles.table}>
                         <thead>
                             <tr>

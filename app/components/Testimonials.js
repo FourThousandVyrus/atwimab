@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import useScrollReveal from '../hooks/useScrollReveal';
 import styles from './Testimonials.module.css';
 
 const testimonials = [
@@ -42,10 +43,12 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+    const headerRef = useScrollReveal();
+
     return (
         <section className={styles.section}>
             <div className="container">
-                <div className="section-header centered">
+                <div className="section-header centered reveal" ref={headerRef}>
                     <span className="section-label">Testimonials</span>
                     <h2 className="section-title">What Our Customers Say</h2>
                     <p className="section-subtitle">Real stories from the people we serve every day across the Ashanti Region.</p>

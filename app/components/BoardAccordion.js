@@ -1,7 +1,15 @@
 'use client';
+import { useState } from 'react';
 import Image from 'next/image';
+import styles from './BoardAccordion.module.css';
 
 const boardMembers = [
+    { 
+        name: 'Mr. Ernest Gyau', 
+        role: 'Chief Executive Officer', 
+        initials: 'EG', 
+        avatar: '/pics/CEO.jpg' 
+    },
     { 
         name: 'Mr. Eric Appiah', 
         role: 'Chairman', 
@@ -41,140 +49,89 @@ const boardMembers = [
 ];
 
 export default function BoardAccordion() {
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const handleKeyDown = (e, index) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            setActiveIndex(index);
+            e.preventDefault();
+        } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+            const nextIndex = (index + 1) % boardMembers.length;
+            setActiveIndex(nextIndex);
+            document.getElementById(`board-tab-${nextIndex}`)?.focus();
+            e.preventDefault();
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            const prevIndex = (index - 1 + boardMembers.length) % boardMembers.length;
+            setActiveIndex(prevIndex);
+            document.getElementById(`board-tab-${prevIndex}`)?.focus();
+            e.preventDefault();
+        }
+    };
+
     return (
-        <div className="board-section">
-            <div className="accordion-container" style={{ 
-                display: 'flex', 
-                width: '100%', 
-                height: '600px', 
-                gap: '0.5rem',
-                margin: '4rem 0',
-                overflow: 'hidden',
-                transition: 'height 0.5s cubic-bezier(0.25, 1, 0.3, 1)'
-            }}>
+        <div className={styles.boardSection}>
+            <div className={styles.accordionContainer}>
                 {boardMembers.map((m, i) => (
-                    <div key={i} className="accordion-item" style={{ 
-                        flex: 1,
-                        position: 'relative',
-                        height: '100%',
-                        cursor: 'pointer',
-                        transition: 'all 0.7s cubic-bezier(0.25, 1, 0.3, 1)',
-                        borderRadius: 'var(--radius-lg)',
-                        overflow: 'hidden',
-                        border: '1px solid rgba(255, 255, 255, 0.1)',
-                        backgroundColor: '#000'
-                    }}>
+                    <button
+                        key={i}
+                        type="button"
+                        className={`${styles.accordionItem} ${activeIndex === i ? styles.accordionItemActive : ''}`}
+                        onClick={() => setActiveIndex(i)}
+                        onMouseEnter={() => setActiveIndex(i)}
+                        onFocus={() => setActiveIndex(i)}
+                        onKeyDown={(e) => handleKeyDown(e, i)}
+                        aria-expanded={activeIndex === i}
+                        aria-controls={`board-panel-${i}`}
+                        id={`board-tab-${i}`}
+                    >
                         {/* Background Image with Overlay */}
-                        <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+                        <div className={styles.bgImageWrapper}>
                             <Image 
                                 src={m.avatar} 
-                                alt={m.name} 
+                                alt="" 
                                 fill 
-                                style={{ 
-                                    objectFit: 'cover', 
-                                    objectPosition: 'top',
-                                    opacity: 0.6, 
-                                    filter: 'grayscale(0.8)' 
-                                }} 
+                                className={styles.bgImage}
+                                sizes="(max-width: 768px) 100vw, 300px"
+                                priority={i === 0}
                             />
-                            <div style={{ 
-                                position: 'absolute', 
-                                inset: 0, 
-                                background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%)' 
-                            }} />
+                            <div className={styles.bgOverlay} />
                         </div>
 
                         {/* Scanning Line Effect */}
-                        <div className="scan-line" style={{
-                            position: 'absolute',
-                            width: '100%',
-                            height: '2px',
-                            background: 'var(--primary-400)',
-                            opacity: 0.2,
-                            top: 0,
-                            boxShadow: '0 0 15px var(--primary-500)'
-                        }} />
+                        <div className={styles.scanLine} />
 
                         {/* Content Wrapper */}
-                        <div style={{ 
-                            position: 'absolute', 
-                            inset: 0, 
-                            padding: '1.5rem', 
-                            display: 'flex', 
-                            flexDirection: 'column', 
-                            justifyContent: 'flex-end',
-                            zIndex: 10
-                        }}>
+                        <div className={styles.content}>
+                            {/* Header indicator caret */}
+                            <div className={styles.headerIndicator}>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </div>
+
                             {/* Vertical Title (Collapsed State) */}
-                            <div className="collapsed-info" style={{
-                                position: 'absolute',
-                                top: '2rem',
-                                left: '50%',
-                                transform: 'translateX(-50%) rotate(-90deg)',
-                                transformOrigin: 'center',
-                                whiteSpace: 'nowrap',
-                                color: '#fff',
-                                fontSize: '0.75rem',
-                                fontWeight: 600,
-                                letterSpacing: '0.2em',
-                                opacity: 0.8,
-                                textTransform: 'uppercase'
-                            }}>
-                                {m.role}
+                            <div className={styles.collapsedInfo}>
+                                {m.role} — {m.name}
                             </div>
 
                             {/* Expanded Info */}
-                            <div className="expanded-info" style={{ 
-                                opacity: 0,
-                                transform: 'translateY(20px)',
-                                transition: 'all 0.5s ease 0.2s'
-                            }}>
-                                <h3 style={{ color: '#fff', fontSize: '1.5rem', fontWeight: 700, margin: 0, lineHeight: 1.1 }}>
-                                    {m.name}
-                                </h3>
-                                <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.875rem', margin: '0.5rem 0 0' }}>
-                                    {m.role}
-                                </p>
+                            <div 
+                                id={`board-panel-${i}`}
+                                role="region"
+                                aria-labelledby={`board-tab-${i}`}
+                                className={styles.expandedInfo}
+                            >
+                                <h3 className={styles.name}>{m.name}</h3>
+                                <p className={styles.role}>{m.role}</p>
                                 
-                                <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem', borderTop: '1px solid rgba(255, 255, 255, 0.1)', paddingTop: '1rem' }}>
-                                    <div style={{ fontSize: '0.65rem', color: 'rgba(255, 255, 255, 0.4)' }}>
-                                        STATUS<br/><span style={{ color: '#4ade80' }}>● ACTIVE</span>
-                                    </div>
-                                </div>
+                                <div className={styles.divider} />
+                                
+
                             </div>
                         </div>
-                    </div>
+                    </button>
                 ))}
             </div>
-
-            <style jsx>{`
-                .accordion-container:hover {
-                    height: 660px !important;
-                }
-                .accordion-item:hover {
-                    flex: 6 !important;
-                }
-                .accordion-item:hover :global(img) {
-                    filter: grayscale(0) !important;
-                    opacity: 1 !important;
-                    transform: scale(1.05);
-                }
-                .accordion-item:hover .collapsed-info {
-                    opacity: 0 !important;
-                }
-                .accordion-item:hover .expanded-info {
-                    opacity: 1 !important;
-                    transform: translateY(0) !important;
-                }
-                .accordion-item:hover .scan-line {
-                    animation: scan 3s linear infinite;
-                    opacity: 0.6 !important;
-                }
-                @keyframes scan {
-                    0% { top: 0%; }
-                    100% { top: 100%; }
-                }
-            `}</style>
         </div>
     );
 }

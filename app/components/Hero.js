@@ -1,20 +1,34 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './Hero.module.css';
+
+const heroImages = [
+    '/community-hero.png',
+    '/customer_entrepreneur_male_1778597821569.png',
+    '/customer_teacher_male_ghana_1778597852861.png'
+];
 
 export default function Hero() {
     const heroRef = useRef(null);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
         const el = heroRef.current;
         if (el) {
             el.classList.add(styles.visible);
         }
+
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+        }, 6000);
+        return () => clearInterval(interval);
     }, []);
 
     return (
         <section className={styles.hero} ref={heroRef}>
+            <div className={styles.dotGridBg}></div>
             <div className={styles.bgPattern}></div>
             <div className={styles.container}>
                 <div className={styles.content}>
@@ -59,32 +73,45 @@ export default function Hero() {
                 <div className={styles.visual}>
                     <div className={styles.visualStack}>
                         <div className={styles.imageBase}>
-                            <img src="/community-hero.png" alt="Atwima Community Bank" className={styles.heroImage} />
+                            {heroImages.map((src, idx) => (
+                                <Image
+                                    key={src}
+                                    src={src}
+                                    alt={`Atwima Community Bank Slide ${idx + 1}`}
+                                    className={`${styles.heroImage} ${idx === currentImageIndex ? styles.activeImage : ''}`}
+                                    fill
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
+                                    priority={idx === 0}
+                                    style={{
+                                        objectFit: 'cover'
+                                    }}
+                                />
+                            ))}
                             <div className={styles.imageOverlay}></div>
                         </div>
                         
                         {/* Floating Trust Cards */}
                         <div className={`${styles.floatingCard} ${styles.card1}`}>
-                            <div className={styles.cardIcon}>🏢</div>
+                            <div className={styles.cardIcon}>📱</div>
                             <div className={styles.cardInfo}>
-                                <div className={styles.cardLabel}>Our Presence</div>
-                                <div className={styles.cardValue}>6 Local Branches</div>
+                                <div className={styles.cardLabel}>USSD Banking</div>
+                                <div className={styles.cardValue}>*248*230#</div>
                             </div>
                         </div>
 
                         <div className={`${styles.floatingCard} ${styles.card2}`}>
-                            <div className={styles.cardIcon}>🤝</div>
+                            <div className={styles.cardIcon}>💰</div>
                             <div className={styles.cardInfo}>
-                                <div className={styles.cardLabel}>Trusted By</div>
-                                <div className={styles.cardValue}>Thousands in Ashanti</div>
+                                <div className={styles.cardLabel}>Daily Susu</div>
+                                <div className={styles.cardValue}>Save & Grow</div>
                             </div>
                         </div>
 
                         <div className={`${styles.floatingCard} ${styles.card3}`}>
-                            <div className={styles.cardIcon}>📈</div>
+                            <div className={styles.cardIcon}>💸</div>
                             <div className={styles.cardInfo}>
-                                <div className={styles.cardLabel}>Our Impact</div>
-                                <div className={styles.cardValue}>30+ Years Growth</div>
+                                <div className={styles.cardLabel}>Remittance</div>
+                                <div className={styles.cardValue}>Send & Receive</div>
                             </div>
                         </div>
 

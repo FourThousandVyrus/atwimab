@@ -1,3 +1,5 @@
+export const dynamic = 'force-static';
+
 export default function sitemap() {
     const base = 'https://atwimabank.com';
     const now = new Date();

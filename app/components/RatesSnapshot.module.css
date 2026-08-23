@@ -26,6 +26,11 @@
 .tab:hover {
     border-color: var(--primary-600);
     color: var(--primary-600);
+    transform: scale(1.04);
+}
+
+.tab:active {
+    transform: scale(0.97);
 }
 
 .tabActive {
@@ -129,3 +134,4 @@
         font-size: var(--text-base) !important;
     }
 }
+

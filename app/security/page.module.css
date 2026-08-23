@@ -1,0 +1,224 @@
+.hero {
+    padding: calc(var(--header-height) + var(--space-16)) 0 var(--space-16);
+    background: linear-gradient(135deg, var(--primary-900) 0%, var(--primary-800) 100%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+}
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: var(--space-4);
+}
+
+.breadcrumbs a {
+    color: rgba(255, 255, 255, 0.6);
+    transition: color var(--transition-fast);
+}
+
+.breadcrumbs a:hover {
+    color: var(--primary-300);
+}
+
+.heroHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+.heroIcon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    background: rgba(34, 118, 74, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-400);
+    flex-shrink: 0;
+}
+
+.heroTitle {
+    font-family: var(--font-heading);
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0;
+    color: #ffffff;
+}
+
+.heroSub {
+    font-size: var(--text-lg);
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    line-height: var(--leading-relaxed);
+}
+
+/* Security Measures Section */
+.measuresSection {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.measuresGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+}
+
+@media (max-width: 768px) {
+    .measuresGrid {
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
+    }
+}
+
+.measureCard {
+    background: var(--bg-primary);
+    border: 1.5px solid var(--neutral-100);
+    border-left: 4px solid var(--secondary-500);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-card);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.measureCard:hover {
+    transform: translateY(-2px);
+    border-color: var(--secondary-400);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.measureTitle {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--neutral-900);
+    margin-bottom: var(--space-2);
+}
+
+.measureDesc {
+    font-size: 0.925rem;
+    color: var(--neutral-600);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Safety Tips Section */
+.tipsSection {
+    background: var(--bg-secondary);
+}
+
+.tipsContainer {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.tipsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+}
+
+@media (max-width: 768px) {
+    .tipsGrid {
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
+    }
+}
+
+.tipCard {
+    background: var(--bg-primary);
+    border: 1.5px solid var(--neutral-100);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-card);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tipCard:hover {
+    transform: translateY(-2px);
+    border-color: rgba(37, 150, 190, 0.25);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.tipHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+}
+
+.tipIcon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.tipTitle {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--neutral-900);
+    margin: 0;
+}
+
+.tipDesc {
+    font-size: 0.925rem;
+    color: var(--neutral-600);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Emergency Reporting Banner */
+.emergencySection {
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+    border: 1px solid var(--primary-100);
+    padding: var(--space-12) var(--space-10);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-md);
+}
+
+.emergencyIcon {
+    font-size: 3.25rem;
+    display: block;
+    margin-bottom: var(--space-4);
+    line-height: 1;
+}
+
+.emergencyTitle {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--primary-900);
+    margin-bottom: var(--space-3);
+}
+
+.emergencyDesc {
+    font-size: 1rem;
+    color: var(--neutral-700);
+    line-height: 1.7;
+    margin-bottom: var(--space-6);
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btnGroup {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}

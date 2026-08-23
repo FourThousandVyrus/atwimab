@@ -29,21 +29,21 @@ export default function SusuCalculator() {
                             <div className={styles.step}>
                                 <div className={styles.stepNum}>1</div>
                                 <div>
-                                    <strong>Set your daily amount</strong>
+                                    <h3 className={styles.stepTitle}>Set your daily amount</h3>
                                     <p>Decide how much you can save each day — even GH₵2 adds up fast.</p>
                                 </div>
                             </div>
                             <div className={styles.step}>
                                 <div className={styles.stepNum}>2</div>
                                 <div>
-                                    <strong>Our collector visits you</strong>
+                                    <h3 className={styles.stepTitle}>Our collector visits you</h3>
                                     <p>No need to come to the branch. We come to your shop or home.</p>
                                 </div>
                             </div>
                             <div className={styles.step}>
                                 <div className={styles.stepNum}>3</div>
                                 <div>
-                                    <strong>Watch your savings grow</strong>
+                                    <h3 className={styles.stepTitle}>Watch your savings grow</h3>
                                     <p>Your money is safe in your Atwima Susu account, earning interest.</p>
                                 </div>
                             </div>
@@ -105,24 +105,26 @@ export default function SusuCalculator() {
                             />
                         </div>
 
-                        {total !== null && !isNaN(total) && total > 0 ? (
-                            <div className={styles.result}>
-                                <div className={styles.resultLabel}>Your projected savings</div>
-                                <div className={styles.resultAmount}>{formatGHS(total)}</div>
-                                <div className={styles.progressBar}>
-                                    <div className={styles.progressFill} style={{ width: `${percent}%` }}></div>
+                        <div aria-live="polite">
+                            {total !== null && !isNaN(total) && total > 0 ? (
+                                <div className={styles.result}>
+                                    <div className={styles.resultLabel}>Your projected savings</div>
+                                    <div className={styles.resultAmount}>{formatGHS(total)}</div>
+                                    <div className={styles.progressBar}>
+                                        <div className={styles.progressFill} style={{ width: `${percent}%` }}></div>
+                                    </div>
+                                    <div className={styles.progressLabel}>
+                                        {percent < 100
+                                            ? `${formatGHS(total)} saved toward a GH₵5,000 goal`
+                                            : `You've exceeded the GH₵5,000 milestone! 🎉`}
+                                    </div>
                                 </div>
-                                <div className={styles.progressLabel}>
-                                    {percent < 100
-                                        ? `${formatGHS(total)} saved toward a GH₵5,000 goal`
-                                        : `You've exceeded the GH₵5,000 milestone! 🎉`}
+                            ) : (
+                                <div className={styles.placeholder}>
+                                    <span>Enter your daily amount and days above to see your projected savings.</span>
                                 </div>
-                            </div>
-                        ) : (
-                            <div className={styles.placeholder}>
-                                <span>Enter your daily amount and days above to see your projected savings.</span>
-                            </div>
-                        )}
+                            )}
+                        </div>
 
                         <Link href="/contact" className={`btn btn-primary ${styles.cta}`}>
                             Open a Susu Account

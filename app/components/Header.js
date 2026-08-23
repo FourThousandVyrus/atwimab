@@ -21,7 +21,7 @@ const navigation = [
         label: 'Business Banking',
         href: '/business-banking',
         children: [
-            { label: 'Business Accounts', href: '/business-banking#accounts' },
+            { label: 'Business Accounts', href: '/business-banking#business-accounts' },
             { label: 'Commercial Loans', href: '/business-banking#commercial-loans' },
             { label: 'Group Loans', href: '/business-banking#group-loans' },
         ],
@@ -35,7 +35,7 @@ const navigation = [
             { label: 'Transport Loan', href: '/loans#transport-loan' },
             { label: 'Susu Loan', href: '/loans#susu-loan' },
             { label: 'Funeral Loan', href: '/loans#funeral-loan' },
-            { label: 'Church Development Loan', href: '/loans#church-loan' },
+            { label: 'Church Development Loan', href: '/loans#church-development-loan' },
         ],
     },
     {
@@ -83,8 +83,15 @@ export default function Header() {
     const [activeDropdown, setActiveDropdown] = useState(null);
 
     useEffect(() => {
+        let ticking = false;
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    setIsScrolled(window.scrollY > 20);
+                    ticking = false;
+                });
+                ticking = true;
+            }
         };
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
@@ -123,18 +130,25 @@ export default function Header() {
                                 onMouseEnter={() => setActiveDropdown(item.label)}
                                 onMouseLeave={() => setActiveDropdown(null)}
                             >
-                                <Link
-                                    href={item.href}
-                                    className={styles.navLink}
-                                    onClick={() => setMobileOpen(false)}
-                                >
-                                    {item.label}
-                                    {item.children && (
+                                {item.children ? (
+                                    <div
+                                        className={styles.navLink}
+                                        style={{ background: 'none', border: 'none', cursor: 'default', padding: 'var(--space-2) var(--space-3)' }}
+                                    >
+                                        {item.label}
                                         <svg width="12" height="12" viewBox="0 0 12 12" className={styles.chevron}>
                                             <path d="M3 5L6 8L9 5" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
                                         </svg>
-                                    )}
-                                </Link>
+                                    </div>
+                                ) : (
+                                    <Link
+                                        href={item.href}
+                                        className={styles.navLink}
+                                        onClick={() => setMobileOpen(false)}
+                                    >
+                                        {item.label}
+                                    </Link>
+                                )}
                                 {item.children && activeDropdown === item.label && (
                                     <div className={styles.dropdown}>
                                         {item.children.map((child) => (

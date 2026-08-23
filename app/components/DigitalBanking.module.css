@@ -40,9 +40,22 @@
 }
 
 .fIcon {
-    font-size: 1.5rem;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-xl);
+    background: var(--primary-50);
+    color: var(--primary-600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
-    margin-top: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature:hover .fIcon {
+    transform: scale(1.08) translateY(-2px);
+    background: var(--primary-100);
+    box-shadow: 0 6px 20px rgba(169, 35, 35, 0.15);
 }
 
 .fTitle {

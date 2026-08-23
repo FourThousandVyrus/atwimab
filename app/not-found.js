@@ -6,10 +6,11 @@ export default function NotFound() {
         <div className={styles.page}>
             <div className={styles.container}>
                 <div className={styles.brand}>
-                    <svg width="44" height="44" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <rect width="120" height="120" rx="24" fill="#2596be" />
-                        <text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="52" fontWeight="800" fontFamily="system-ui, sans-serif">A</text>
-                    </svg>
+                    <img 
+                        src="/logo.png" 
+                        alt="Atwima Community Bank Logo" 
+                        style={{ width: 'auto', height: '44px', objectFit: 'contain' }}
+                    />
                     <span className={styles.brandName}>Atwima Community Bank</span>
                 </div>
 

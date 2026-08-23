@@ -21,7 +21,12 @@
     opacity: 1;
 }
 
-/* Overlay removed to show full vibrancy */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(6, 26, 36, 0.7);
+    z-index: 2;
+}
 
 .whiteLabel {
     display: inline-block;

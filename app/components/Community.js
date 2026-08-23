@@ -1,25 +1,17 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import useScrollReveal from '../hooks/useScrollReveal';
 import Image from 'next/image';
 import styles from './Community.module.css';
 
 export default function Community() {
-    const ref = useRef(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => { if (entry.isIntersecting) entry.target.classList.add(styles.visible); },
-            { threshold: 0.15 }
-        );
-        if (ref.current) observer.observe(ref.current);
-        return () => observer.disconnect();
-    }, []);
+    const imageRef = useScrollReveal();
+    const contentRef = useScrollReveal({ rootMargin: '0px 0px -40px 0px' });
 
     return (
-        <section className={`section ${styles.section}`} ref={ref}>
+        <section className={`section ${styles.section}`}>
             <div className="container">
                 <div className={styles.grid}>
-                    <div className={styles.imageGrid}>
+                    <div className={`${styles.imageGrid} reveal-left`} ref={imageRef}>
                         <div className={styles.imgPlaceholder}>
                             <Image fill src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80" alt="Education sponsorship programme" sizes="(max-width:768px) 100vw, 400px" style={{ objectFit: 'cover' }} />
                             <span className={styles.imgLabel}>🎓 Education Sponsorships</span>
@@ -33,7 +25,7 @@ export default function Community() {
                             <span className={styles.imgLabel}>🌾 Agricultural Support</span>
                         </div>
                     </div>
-                    <div className={styles.content}>
+                    <div className={`${styles.content} reveal-right`} ref={contentRef}>
                         <span className="section-label">Community Impact</span>
                         <h2 className="section-title">Investing in Our Community</h2>
                         <p className={styles.desc}>
@@ -44,21 +36,21 @@ export default function Community() {
                             <div className={styles.impact}>
                                 <div className={styles.impactIcon}>🎒</div>
                                 <div>
-                                    <strong>Education</strong>
+                                    <h3 className={styles.impactTitle}>Education</h3>
                                     <p>Scholarships and school infrastructure support for local students.</p>
                                 </div>
                             </div>
                             <div className={styles.impact}>
                                 <div className={styles.impactIcon}>🤝</div>
                                 <div>
-                                    <strong>SME Empowerment</strong>
+                                    <h3 className={styles.impactTitle}>SME Empowerment</h3>
                                     <p>Financial literacy programs and business development workshops.</p>
                                 </div>
                             </div>
                             <div className={styles.impact}>
                                 <div className={styles.impactIcon}>🏘️</div>
                                 <div>
-                                    <strong>Local Development</strong>
+                                    <h3 className={styles.impactTitle}>Local Development</h3>
                                     <p>Infrastructure projects and community event sponsorships.</p>
                                 </div>
                             </div>

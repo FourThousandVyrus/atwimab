@@ -17,6 +17,25 @@
         radial-gradient(circle at 60% 80%, rgba(37, 150, 190, 0.05) 0%, transparent 40%);
     pointer-events: none;
     animation: orbs 12s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+.dotGridBg {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(37, 150, 190, 0.15) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+    opacity: 0.8;
+    pointer-events: none;
+    mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+    animation: gridPulse 10s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+@keyframes gridPulse {
+    0% { transform: scale(1); opacity: 0.65; }
+    100% { transform: scale(1.03); opacity: 0.85; }
 }
 
 @keyframes orbs {
@@ -33,6 +52,8 @@
     gap: var(--space-12);
     align-items: center;
     width: 100%;
+    position: relative;
+    z-index: 2;
 }
 
 .content {
@@ -149,12 +170,26 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.activeImage {
+    opacity: 1;
+    animation: kenBurns 8s ease-out forwards;
+    will-change: transform;
+}
+
+@keyframes kenBurns {
+    0% { transform: scale(1.02); }
+    100% { transform: scale(1.1); }
 }
 
 .imageOverlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg, rgba(37, 150, 190, 0.1), rgba(0, 0, 0, 0.3));
+    z-index: 2;
 }
 
 .logoBranding {
@@ -191,6 +226,7 @@
     z-index: 10;
     animation: float 6s ease-in-out infinite;
     white-space: nowrap;
+    will-change: transform;
 }
 
 .cardIcon {

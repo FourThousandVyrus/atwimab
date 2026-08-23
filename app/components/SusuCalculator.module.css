@@ -46,10 +46,11 @@
     margin: var(--space-1) 0 0;
 }
 
-.step strong {
+.stepTitle {
     font-size: var(--text-base);
     color: var(--neutral-800);
     display: block;
+    font-weight: 700;
 }
 
 .stepNum {

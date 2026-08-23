@@ -1,9 +1,10 @@
 import "./globals.css";
+import KenteLoader from "./components/KenteLoader";
 
 export const metadata = {
   title: "Atwima Community Bank PLC | A Friend in Need is a Friend Indeed",
   description: "Atwima Community Bank PLC - Over 30 years of trusted banking services in the Ashanti Region. Personal banking, business loans, investments, and remittance services. Bank of Ghana regulated, GDPC member.",
-  keywords: "Atwima Community Bank, rural bank Ghana, banking Ashanti Region, savings account Ghana, business loans, susu account, fixed deposit, Western Union Ghana",
+  keywords: "Atwima Community Bank, community bank Ghana, banking Ashanti Region, savings account Ghana, business loans, susu account, fixed deposit, Western Union Ghana",
   openGraph: {
     title: "Atwima Community Bank PLC | Trusted Community Banking",
     description: "Over 30 years of trusted banking services. Personal & business banking, loans, investments, and remittance.",
@@ -56,6 +57,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <KenteLoader />
         {children}
       </body>
     </html>

@@ -1,12 +1,16 @@
+'use client';
 import Link from 'next/link';
+import useScrollReveal from '../hooks/useScrollReveal';
 import styles from './CTABanner.module.css';
 
 export default function CTABanner() {
+    const ref = useScrollReveal({ threshold: 0.2 });
+
     return (
         <section className={styles.cta}>
             <div className={styles.bg}></div>
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                <div className={styles.content}>
+                <div className={`${styles.content} reveal-scale`} ref={ref}>
                     <h2 className={styles.title}>Ready to Get Started?</h2>
                     <p className={styles.text}>
                         Open an account today and experience the Atwima Community Bank difference.

@@ -1,0 +1,301 @@
+.hero {
+    padding: calc(var(--header-height) + var(--space-16)) 0 var(--space-16);
+    background: linear-gradient(135deg, var(--primary-900) 0%, var(--primary-800) 100%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+}
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: var(--space-4);
+}
+
+.breadcrumbs a {
+    color: rgba(255, 255, 255, 0.6);
+    transition: color var(--transition-fast);
+}
+
+.breadcrumbs a:hover {
+    color: var(--primary-300);
+}
+
+.heroTitle {
+    font-family: var(--font-heading);
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: var(--space-4);
+}
+
+.heroSub {
+    font-size: var(--text-lg);
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    line-height: var(--leading-relaxed);
+}
+
+/* Grid & Cards */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-6);
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+}
+
+.card {
+    background: var(--bg-primary);
+    border: 1.5px solid var(--neutral-100);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-card);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(37, 150, 190, 0.25);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.popularCard {
+    border: 2px solid var(--primary-500);
+    box-shadow: 0 10px 30px rgba(37, 150, 190, 0.08);
+}
+
+.popularBadge {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-6);
+    background: var(--primary-600);
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+.iconBox {
+    width: 56px;
+    height: 56px;
+    background: var(--primary-50);
+    color: var(--primary-600);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.popularCard .iconBox {
+    background: var(--primary-100);
+}
+
+.cardTitle {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--neutral-900);
+}
+
+.cardDesc {
+    font-size: 0.95rem;
+    color: var(--neutral-600);
+    line-height: 1.6;
+    margin-bottom: var(--space-6);
+}
+
+.featureList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.featureItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.875rem;
+    color: var(--neutral-600);
+    line-height: 1.4;
+}
+
+.featureItem svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.resourceLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+    border-top: 1px solid var(--neutral-100);
+    padding-top: var(--space-4);
+}
+
+.resourceLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--primary-600);
+    transition: color 0.2s ease;
+}
+
+.resourceLink:hover {
+    color: var(--primary-800);
+}
+
+.disclaimer {
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--neutral-400);
+    max-width: 600px;
+    margin: var(--space-12) auto 0;
+    line-height: 1.6;
+}
+
+/* Tabbed Interface Styling */
+.tabsContainer {
+    margin-bottom: var(--space-12);
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid var(--neutral-100);
+    position: relative;
+    z-index: 10;
+}
+
+.tabsList {
+    display: flex;
+    gap: var(--space-8);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.tabsList::-webkit-scrollbar {
+    display: none;
+}
+
+.tabButton {
+    background: none;
+    border: none;
+    font-family: var(--font-heading);
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--neutral-500);
+    padding: var(--space-4) var(--space-2);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.tabButton:hover {
+    color: var(--primary-600);
+}
+
+.tabButtonActive {
+    color: var(--primary-600);
+}
+
+.tabButtonActive::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--primary-600);
+    border-radius: 2px;
+}
+
+.tabPanel {
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tabbedCard {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: var(--space-10);
+    background: var(--bg-primary);
+    border: 1px solid var(--neutral-100);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    padding: var(--space-6);
+    align-items: center;
+}
+
+.tabbedImageWrapper {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+    .tabbedCard {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+        padding: var(--space-4);
+    }
+    .tabbedImageWrapper {
+        height: 280px;
+    }
+}
