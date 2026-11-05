@@ -18,40 +18,16 @@ const managementTeam = [
         bio: 'Mrs. Salamatu Zakaria leads our Human Resources department with a focus on talent development and organizational excellence. With extensive experience in the community banking sector, she ensures that our team is empowered to deliver exceptional service while maintaining the highest standards of professional conduct and community-focused banking.'
     },
     {
-        name: 'Mr. Clifford Awuah',
-        role: 'Business Development Manager',
-        image: '/pics/BDM.jpg',
-        bio: 'A Chartered Certified Accountant with over 10 years of experience in banking, Mr. Awuah specializes in Audit and Assurance, Internal Controls, and Strategic Business Leadership. He is a Member of the Association of Chartered Certified Accountants (ACCA, UK) and is dedicated to identifying strategic growth opportunities that expand our impact across the region.'
-    },
-    {
         name: 'Mrs. Evelyn Ackah',
         role: 'Compliance Manager',
         image: '/pics/COM.jpg',
         bio: 'Mrs. Evelyn Ackah holds a Bachelor’s Degree in Business Administration (Banking and Finance) and brings 18 years of experience in medium-scale enterprise financing. With excellent analytical and problem-solving skills, she ensures that Atwima Community Bank maintains the highest regulatory standards and robust business relationships.'
     },
     {
-        name: 'Mr. Frederick Arhin Bukuro',
-        role: 'Operations Manager',
-        image: '/pics/OPM.jpg',
-        bio: 'Mr. Arhin joined the bank in 2017 and has served in several key roles, including Head of Central Accounts. A Chartered Banker specializing in Corporate Governance and Risk Management, he graduated with First Class Honors in Banking and Finance from UPSA. He is a member of the Chartered Institute of Bankers, Ghana, and leads our operational efficiency initiatives.'
-    },
-    {
         name: 'Mr. Samuel Donkor',
         role: 'Credit Manager',
         image: '/pics/CM.jpg',
         bio: 'Mr. Samuel Donkor holds a Master of Science in Finance from KNUST and has over six years of specialized banking experience. Known for his hard work and dedication to responsible lending, he was appointed to lead the Credit department in 2024, where he oversees our portfolio with a focus on supporting local enterprise growth.'
-    },
-    {
-        name: 'Mr. Richard Antwi',
-        role: 'Marketing Manager',
-        image: '/richard.jpg',
-        bio: 'Holding a BSc in Economics from the Catholic University College of Ghana, Mr. Richard Antwi has over 10 years of banking experience. Since his appointment as Marketing Manager in 2023, he has been instrumental in building the bank’s brand presence and ensuring our financial solutions are effectively communicated to our diverse customer base.'
-    },
-    {
-        name: 'Mr. Collins Boateng Bawuah',
-        role: 'IT Manager',
-        image: '/pics/IT.jpg',
-        bio: 'Mr. Collins Boateng Bawuah holds a degree in ICT from Data Link University and brings over 10 years of managerial experience in the community banking industry. A Microsoft Certified Systems Engineer (MCSE) and Administrator (MCSA), he specializes in Cyber Security, ensuring our digital banking infrastructure is secure, modern, and reliable.'
     }
 ];
 
