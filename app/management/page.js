@@ -22,12 +22,6 @@ const managementTeam = [
         role: 'Compliance Manager',
         image: '/pics/COM.jpg',
         bio: 'Mrs. Evelyn Ackah holds a Bachelor’s Degree in Business Administration (Banking and Finance) and brings 18 years of experience in medium-scale enterprise financing. With excellent analytical and problem-solving skills, she ensures that Atwima Community Bank maintains the highest regulatory standards and robust business relationships.'
-    },
-    {
-        name: 'Mr. Samuel Donkor',
-        role: 'Credit Manager',
-        image: '/pics/CM.jpg',
-        bio: 'Mr. Samuel Donkor holds a Master of Science in Finance from KNUST and has over six years of specialized banking experience. Known for his hard work and dedication to responsible lending, he was appointed to lead the Credit department in 2024, where he oversees our portfolio with a focus on supporting local enterprise growth.'
     }
 ];
 

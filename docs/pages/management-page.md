@@ -4,11 +4,10 @@
 
 * **Current Structure:**
   - **Hero Section:** Image backdrop (bod background.jpg) with dark text overlay.
-  - **Spine Timeline Grid:** Four senior executives detailed in alternating left/right layout blocks tied to a vertical central line:
+  - **Spine Timeline Grid:** Three senior executives detailed in alternating left/right layout blocks tied to a vertical central line:
     - *Ernest Gyau:* Chief Executive Officer.
     - *Salamatu Zakaria:* Human Resource Manager.
     - *Evelyn Ackah:* Compliance Manager.
-    - *Samuel Donkor:* Credit Manager.
   - **Unit Heads Grid:** Displays operational leadership (CAGD Unit, Digital & Innovation Unit, Recovery Manager, Susu Coordinator).
   - **Branch Leadership Grid:** Prince Afriyie (Foase Manager) and Kwadaso Branch Manager.
   - **Footer Quote:** Dynamic closing banner.
